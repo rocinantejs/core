@@ -1,0 +1,23 @@
+# generated files
+DS_Store
+*.DS_Store
+*.swp
+
+# logs
+*.log
+
+# cache
+.vscode/
+.eslintcache
+
+# build dir
+dist/
+storybook-static/
+
+# dependencies
+node_modules/
+
+# test output
+coverage/
+
+test-report.xml
