@@ -1,36 +1,24 @@
 import React from "react";
 
-import { Button } from ".";
+import { Button, ButtonProps } from ".";
+import { Meta, Story } from "../../storybook";
 
 export default {
   title: "Example/Button",
   component: Button,
   argTypes: {
     backgroundColor: { control: "color" },
+    label: { defaultValue: "Example" },
+    primary: { defaultValue: true },
   },
-};
+} as Meta<ButtonProps>;
 
-const Template = (args) => <Button {...args} />;
+export const Playground: Story<ButtonProps> = (props: ButtonProps) => <Button {...props} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: "Button",
-};
+export const Primary = (): JSX.Element => <Button label="Primary" primary={true} />;
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button",
-};
+export const Secondary = (): JSX.Element => <Button label="Secondary" primary={false} />;
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
+export const Large = (): JSX.Element => <Button label="Large" size="large" />;
 
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
-};
+export const Small = (): JSX.Element => <Button label="Small" size="small" />;
