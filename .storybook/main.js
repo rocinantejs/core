@@ -1,33 +1,41 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  stories: ['../src/stories/**/*.stories.tsx'],
-  addons: [
-    '@storybook/addon-actions/register',
-    '@storybook/addon-knobs/register',
-    '@storybook/addon-notes/register',
-  ],
-  webpackFinal: async config => {
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.(ts|tsx)$/,
-        use: [
-          {
-            loader: require.resolve("babel-loader"),
-            options: {
-              presets: [require.resolve("babel-preset-react-app")]
-            }
+  stories: ['../src/**/*.stories.tsx'],
+  // Add any Storybook addons you want here: https://storybook.js.org/addons/
+  addons: [],
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        'css-loader',
+
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: {
+                tailwindcss: {},
+                autoprefixer: {},
+              },
+            },
           },
-          {
-            loader: "typed-tailwind-loader",
-            options: { config: path.resolve("./src/tw.ts") }
-          },
-          require.resolve("react-docgen-typescript-loader")
-        ]
-      }
-    ],
+        },
+        'sass-loader',
+      ],
+      include: path.resolve(__dirname, '../'),
+    });
+
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      options: {
+        presets: [['react-app', { flow: false, typescript: true }]],
+      },
+    });
     config.resolve.extensions.push('.ts', '.tsx');
+
     return config;
   },
 };
