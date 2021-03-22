@@ -1,12 +1,17 @@
 // tailwind.config.js
 module.exports = {
-  purge: [
-    'src/**/*.tsx',
-  ],
-  darkMode: 'media', // or 'media' or 'class'
+  purge: ["src/**/*.tsx"],
+  darkMode: "media", // or 'media' or 'class'
   theme: {
-    extend: {},
+    backgroundSize: {
+      "200%": "200%",
+    },
   },
-  variants: {},
+  variants: {
+    animation: ["hover", "focus"],
+    transitionProperty: ["hover", "focus"],
+    backgroundSize: ['hover', 'focus'],
+    backgroundPosition: ['hover', 'focus'],
+  },
   plugins: [],
 };

@@ -48,6 +48,11 @@ export default {
           dest: 'build',
           rename: 'typography.scss',
         },
+        {
+          src: 'src/tailwind.scss',
+          dest: 'build',
+          rename: 'tailwind.scss',
+        },
       ],
     }),
   ],
