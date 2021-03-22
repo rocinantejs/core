@@ -6,4 +6,6 @@ export default {
   title: "Button",
 };
 
-export const WithText = () => <Button>Click me!</Button>;
+export const Primary = () => <Button>Click me!</Button>;
+
+export const Secondary = () => <Button variant="secondary">Click me!</Button>;
