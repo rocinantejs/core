@@ -1,12 +1,7 @@
 module.exports = (componentName) => ({
-  content: `// Generated with util/create-component.js
-@import "../variables.scss";
-@import "../typography.scss";
-
+  content: `
 .foo-bar {
-  @include font-defaults;
-
-  color: $harvey-green;
+  color: black;
 }
 `,
   extension: `.scss`
