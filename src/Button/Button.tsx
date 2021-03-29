@@ -14,7 +14,7 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   variant = "primary",
   ...props
 }) => {
-  const baseStyles = "px-4 py-1 rounded text-white transition-all ease-in-out";
+  const baseStyles = "px-4 py-1 rounded shadow text-white transition-all ease-in-out";
 
   const variantStyles: { [key in typeof variant]: string } = {
     primary:
@@ -24,7 +24,6 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
 
   return (
     <button
-      data-testid="Button"
       className={classnames(baseStyles, variantStyles[variant], className)}
       {...props}
     >

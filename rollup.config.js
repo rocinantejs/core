@@ -7,6 +7,7 @@ import copy from 'rollup-plugin-copy';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import postcssimport from 'postcss-import';
+import postcssapply from 'postcss-apply';
 
 const packageJson = require('./package.json');
 
@@ -29,6 +30,7 @@ export default {
     postcss({
       plugins: [
         postcssimport(),
+        postcssapply(),
         tailwindcss(),
         autoprefixer(),
       ],

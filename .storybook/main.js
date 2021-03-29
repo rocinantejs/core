@@ -16,6 +16,7 @@ module.exports = {
           options: {
             postcssOptions: {
               plugins: {
+                'postcss-apply': {},
                 tailwindcss: {},
                 autoprefixer: {},
               },

@@ -11,7 +11,9 @@ module.exports = {
     animation: ["hover", "focus"],
     transitionProperty: ["hover", "focus"],
     backgroundSize: ['hover', 'focus'],
-    backgroundPosition: ['hover', 'focus'],
+    backgroundPosition: ['hover', 'focus', 'checked'],
+    borderColor: ['checked'],
+    inset: ['checked']
   },
   plugins: [],
 };
