@@ -1,3 +1,7 @@
+# Rocinante
+
+Named after the best ship in the galaxy (and beyond the ring), Rocinante is a small and sleek dark mode focused UI library with big guns 💪.
+
 ## Development
 
 ### Testing
