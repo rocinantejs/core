@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import { MdChevronRight } from "react-icons/md";
-import { useSelect } from "downshift";
+import { useCombobox } from "downshift";
 import classnames from "classnames";
 import { usePopper } from "react-popper";
 
@@ -8,20 +8,20 @@ import React from "react";
 import "../tailwind.scss";
 import { Component } from "../shared";
 
-export interface SelectItem {
+export interface ComboboxItem {
   name: string;
   value: string;
 }
 
-export interface SelectProps extends Component {
-  items: SelectItem[];
+export interface ComboboxProps extends Component {
+  items: ComboboxItem[];
   label?: string;
   placeHolder?: string;
-  selectedItem?: SelectItem;
-  onItemSelected?: (item?: SelectItem) => void;
+  selectedItem?: ComboboxItem;
+  onItemSelected?: (item?: ComboboxItem) => void;
 }
 
-const Select: React.FC<SelectProps> = ({
+const Combobox: React.FC<ComboboxProps> = ({
   items,
   label,
   className,
@@ -36,8 +36,11 @@ const Select: React.FC<SelectProps> = ({
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
+    getInputProps,
+    getComboboxProps,
+    highlightedIndex,
     getItemProps,
-  } = useSelect({
+  } = useCombobox({
     items,
     itemToString: (item) => item.name,
     selectedItem: selectedItemProp,
@@ -59,24 +62,24 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div {...props}>
       {label && <label {...getLabelProps()}>{label}</label>}
-      <button
-        type="button"
-        {...getToggleButtonProps({ ref: setReferenceElement })}
-        className={classnames(
-          "flex px-4 pr-1 py-1 rounded shadow text-white transition-all ease-in-out bg-black bg-opacity-25 hover:bg-opacity-50",
-          isOpen && "rounded-b-none"
-        )}
-      >
-        <div className={classnames("flex-1", !selectedItem && "text-gray-400")}>
-          {selectedItem?.name || placeHolder || "Select..."}
-        </div>
-        <MdChevronRight
+      <div {...getComboboxProps()}>
+        <button
+          type="button"
+          {...getToggleButtonProps({ ref: setReferenceElement })}
           className={classnames(
-            "self-center  mx-1 transition-all ease-in-out",
-            isOpen && "transform rotate-90"
+            "flex px-4 pr-1 py-1 rounded shadow text-white transition-all ease-in-out bg-black bg-opacity-25 hover:bg-opacity-50",
+            isOpen && "rounded-b-none"
           )}
-        />
-      </button>
+        >
+          <input {...getInputProps()} className="bg-transparent" />
+          <MdChevronRight
+            className={classnames(
+              "self-center  mx-1 transition-all ease-in-out",
+              isOpen && "transform rotate-90"
+            )}
+          />
+        </button>
+      </div>
       <div
         ref={setPopperElement}
         style={popperStyles.popper}
@@ -102,4 +105,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default Combobox;
