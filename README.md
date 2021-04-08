@@ -7,13 +7,13 @@ Named after the best ship in the galaxy (and beyond the ring), Rocinante is a sm
 ### Testing
 
 ```
-npm run test
+yarn test
 ```
 
 ### Building
 
 ```
-npm run build
+yarn build
 ```
 
 ### Storybook
@@ -21,21 +21,13 @@ npm run build
 To run a live-reload Storybook server on your local machine:
 
 ```
-npm run storybook
+yarn storybook
 ```
-
-To export your Storybook as static files:
-
-```
-npm run storybook:export
-```
-
-You can then serve the files under `storybook-static` using S3, GitHub pages, Express etc. I've hosted this library at: https://www.harveydelaney.com/react-component-library
 
 ### Generating New Components
 
 ```
-npm run generate YourComponentName
+yarn generate YourComponentName
 ```
 
 This will generate:
@@ -45,8 +37,6 @@ This will generate:
   /YourComponentName
     YourComponentName.tsx
     YourComponentName.stories.tsx
-    YourComponentName.test.tsx
-    YourComponentName.types.ts
     YourComponentName.scss
 ```
 

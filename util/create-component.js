@@ -1,6 +1,12 @@
 require("colors");
 const fs = require("fs");
-const templates = require("./templates");
+
+const component = require("./templates/component");
+const componentStories = require("./templates/component.stories");
+const componentStyles = require("./templates/component.scss");
+const componentIndex = require("./templates/index.js");
+
+const templates = [component, componentStories, componentStyles, componentIndex];
 
 const componentName = process.argv[2];
 
@@ -24,7 +30,7 @@ const generatedTemplates = templates.map((template) => template(componentName));
 
 generatedTemplates.forEach((template) => {
   fs.writeFileSync(
-    `${componentDirectory}/${componentName}${template.extension}`,
+    `${componentDirectory}/${template.overrideName || componentName}${template.extension}`,
     template.content
   );
 });

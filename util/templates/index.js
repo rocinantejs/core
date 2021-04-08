@@ -1,5 +1,6 @@
-const component = require("./component");
-const componentStories = require("./component.stories");
-const componentStyles = require("./component.scss");
-
-module.exports = [component, componentStories, componentStyles];
+module.exports = (componentName) => ({
+  content: `// Generated with util/create-component.js
+export { default } from "./${componentName}";`,
+  extension: `.ts`,
+  overrideName: `index`,
+});
