@@ -63,7 +63,7 @@ const Select: React.FC<SelectProps> = ({
         type="button"
         {...getToggleButtonProps({ ref: setReferenceElement })}
         className={classnames(
-          "flex px-4 pr-1 py-1 rounded shadow text-white transition-all ease-in-out bg-black bg-opacity-25 hover:bg-opacity-50",
+          "flex px-4 pr-1 py-1 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50",
           isOpen && "rounded-b-none"
         )}
       >
@@ -84,12 +84,12 @@ const Select: React.FC<SelectProps> = ({
       >
         <ul
           {...getMenuProps()}
-          className="rounded-b shadow text-white bg-black bg-opacity-25 flex flex-col "
+          className={classnames("rounded-b shadow text-white bg-dark-1 border-dark-2 flex flex-col", isOpen && "border")}
         >
           {isOpen &&
             items.map((item, index) => (
               <li
-                className="px-4 p-1 transition-all ease-in-out  min-w-full hover:bg-black hover:bg-opacity-25"
+                className="px-4 p-1 transition-all ease-in-out  min-w-full hover:bg-dark-0"
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}
               >

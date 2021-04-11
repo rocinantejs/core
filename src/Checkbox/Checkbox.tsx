@@ -35,11 +35,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
           id="toggle"
           checked={checked}
           onClick={(e: any) => onChanged && onChanged(e.target.checked)}
-          className="toggle-checkbox absolute block w-4 h-4 top-1 left-1 rounded-full bg-white shadow appearance-none cursor-pointer checked:right-1 checked:left-5 transition-all"
+          className="toggle-checkbox absolute block w-4 h-4 top-1 left-1 rounded-full bg-gray-300 shadow appearance-none cursor-pointer checked:right-1 checked:left-5 transition-all"
         />
         <label
           htmlFor="toggle"
-          className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer shadow-inner"
+          className="toggle-label block overflow-hidden h-6 rounded-full bg-dark-1 border border-dark-2 cursor-pointer shadow-inner"
         ></label>
       </div>
       {label && (

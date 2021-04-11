@@ -1,7 +1,7 @@
 
 import { addons } from '@storybook/addons';
-import { themes } from '@storybook/theming';
+import rocinante from './rocinante.theme';
 
 addons.setConfig({
-  theme: themes.dark,
+  theme: rocinante,
 });

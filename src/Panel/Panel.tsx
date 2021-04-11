@@ -6,10 +6,10 @@ import { Component } from "../shared";
 
 export interface CardProps extends Component {}
 
-const Card: React.FC<CardProps> = ({ className, children, ...props }) => (
+const Panel: React.FC<CardProps> = ({ className, children, ...props }) => (
   <div
     className={classnames(
-      "p-4 bg-dark-1 rounded-md shadow text-white w-auto",
+      "p-4 bg-dark-1 text-white w-auto",
       className
     )}
     {...props}
@@ -18,4 +18,4 @@ const Card: React.FC<CardProps> = ({ className, children, ...props }) => (
   </div>
 );
 
-export default Card;
+export default Panel;

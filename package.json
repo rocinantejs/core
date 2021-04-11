@@ -1,6 +1,6 @@
 {
   "name": "@rocinante/core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -13,7 +13,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "storybook:export": "build-storybook",
     "generate": "node ./util/create-component",
     "prepublishOnly": "npm run build"

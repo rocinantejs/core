@@ -18,8 +18,8 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
 
   const variantStyles: { [key in typeof variant]: string } = {
     primary:
-      "bg-gradient-to-r from-indigo-500 to-purple-400 via-blue-500 bg-200% hover:bg-right",
-    secondary: "bg-black bg-opacity-25 hover:bg-opacity-50",
+      "border-blue-500 border bg-gradient-to-r from-indigo-500 to-purple-400 via-blue-500 bg-200% hover:bg-right",
+    secondary: "bg-dark-1 border-dark-2 border hover:bg-opacity-50",
   };
 
   return (
