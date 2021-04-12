@@ -23,6 +23,7 @@ module.exports = {
     backgroundPosition: ["hover", "focus", "checked"],
     borderColor: ["hover", "checked"],
     borderWidth: ["hover", "checked"],
+    boxShadow: ["hover", "focus"],
     inset: ["checked"],
   },
   plugins: [],

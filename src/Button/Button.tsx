@@ -22,7 +22,7 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
     primary:
       "shadow border-blue-500 border bg-gradient-to-r from-indigo-500 to-purple-400 via-blue-500 bg-200% hover:bg-right",
     secondary: "shadow bg-dark-1 border-dark-2 border hover:bg-opacity-50",
-    flat: "hover:bg-dark-1 border border-dark-1 border-dark-2",
+    flat: "hover:shadow hover:border-dark-2 border border-dark-0",
   };
 
   return (

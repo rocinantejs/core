@@ -1,6 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 
+import Button from "../Button";
 import Typography from "../Typography/Typography";
 import Navbar from "./Navbar";
 
@@ -13,8 +14,8 @@ export const Component = (): React.ReactNode => (
     brand={<Typography variant="h1">Rocinante</Typography>}
     navLinks={
       <>
-        <Typography variant="h3">Home</Typography>
-        <Typography variant="h3">About</Typography>
+        <Button variant="flat">Home</Button>
+        <Button variant="flat">About</Button>
       </>
     }
     navButtons={[
