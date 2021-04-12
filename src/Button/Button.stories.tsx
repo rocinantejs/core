@@ -9,3 +9,6 @@ export default {
 export const Primary = () => <Button>Click me!</Button>;
 
 export const Secondary = () => <Button variant="secondary">Click me!</Button>;
+
+
+export const Flat = () => <Button variant="flat">Click me!</Button>;
