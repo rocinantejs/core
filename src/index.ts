@@ -1,10 +1,10 @@
 import Button from "./Button";
-import Checkbox from "./Checkbox";
-import Select from "./Select";
-import Combobox from "./Combobox";
-import Typography from "./Typography";
 import Card from "./Card";
-import Panel from "./Panel";
+import Checkbox from "./Checkbox";
+import Combobox from "./Combobox";
 import Navbar from "./Navbar";
+import Panel from "./Panel";
+import Select from "./Select";
+import Typography from "./Typography";
 
 export { Button, Checkbox, Select, Combobox, Typography, Card, Panel, Navbar };

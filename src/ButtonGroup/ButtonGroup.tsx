@@ -1,10 +1,11 @@
 // Generated with util/create-component.js
-import React from "react";
 import "../tailwind.scss";
-import classnames from "classnames";
-import { Component } from "../shared";
-
 import "./ButtonGroup.scss";
+
+import classnames from "classnames";
+import React from "react";
+
+import { Component } from "../shared";
 
 export interface ButtonGroupProps extends Component {
   foo: string;
@@ -15,8 +16,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   className,
   ...props
 }) => (
-    <div className={classnames(className)} {...props}>{foo}</div>
+  <div className={classnames(className)} {...props}>
+    {foo}
+  </div>
 );
 
 export default ButtonGroup;
-

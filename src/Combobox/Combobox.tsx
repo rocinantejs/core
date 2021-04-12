@@ -1,11 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 // Generated with util/create-component.js
-import { MdChevronRight } from "react-icons/md";
-import { useCombobox } from "downshift";
+import "../tailwind.scss";
+
 import classnames from "classnames";
+import { useCombobox } from "downshift";
+import React from "react";
+import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
-import React from "react";
-import "../tailwind.scss";
 import { Component } from "../shared";
 
 export interface ComboboxItem {
@@ -32,13 +34,11 @@ const Combobox: React.FC<ComboboxProps> = ({
 }) => {
   const {
     isOpen,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getInputProps,
     getComboboxProps,
-    highlightedIndex,
     getItemProps,
   } = useCombobox({
     items,
@@ -87,12 +87,16 @@ const Combobox: React.FC<ComboboxProps> = ({
       >
         <ul
           {...getMenuProps()}
-          className={classnames("rounded-b shadow text-white bg-dark-1 border-dark-2 flex flex-col", isOpen && "border")}
+          className={classnames(
+            "rounded-b shadow text-white bg-dark-1 border-dark-2 flex flex-col",
+            isOpen && "border"
+          )}
         >
           {isOpen &&
             items.map((item, index) => (
               <li
                 className="px-4 p-1 transition-all ease-in-out  min-w-full hover:bg-dark-0"
+                // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}
               >

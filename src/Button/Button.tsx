@@ -1,7 +1,9 @@
 // Generated with util/create-component.js
-import React, { PropsWithChildren } from "react";
 import "../tailwind.scss";
+
 import classnames from "classnames";
+import React, { PropsWithChildren } from "react";
+
 import { Component } from "../shared";
 
 export interface ButtonProps extends Component {
@@ -20,12 +22,13 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
     primary:
       "shadow border-blue-500 border bg-gradient-to-r from-indigo-500 to-purple-400 via-blue-500 bg-200% hover:bg-right",
     secondary: "shadow bg-dark-1 border-dark-2 border hover:bg-opacity-50",
-    flat: "hover:bg-dark-1 border border-dark-1 border-dark-2"
+    flat: "hover:bg-dark-1 border border-dark-1 border-dark-2",
   };
 
   return (
     <button
       className={classnames(baseStyles, variantStyles[variant], className)}
+      type="button"
       {...props}
     >
       {children}

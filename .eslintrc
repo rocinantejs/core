@@ -1,0 +1,67 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "jest",
+    "simple-import-sort"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": ["./tsconfig.json", "./tsconfig.eslint.json"]
+  },
+  "ignorePatterns": [
+    "build/",
+    "node_modules/"
+  ],
+  "rules": {
+    "semi": 2,
+    "linebreak-style": "off",
+    "simple-import-sort/imports": "error",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "import/prefer-default-export": "off",
+    "react/no-unused-prop-types": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state",
+          "ctx"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

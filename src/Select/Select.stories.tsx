@@ -1,5 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
+
 import Select, { SelectItem } from "./Select";
 
 export default {
@@ -14,4 +15,4 @@ const items: SelectItem[] = [
   { name: "Item 5", value: "item5" },
 ];
 
-export const Component = () => <Select items={items} />;
+export const Component = (): React.ReactNode => <Select items={items} />;

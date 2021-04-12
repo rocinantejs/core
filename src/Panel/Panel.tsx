@@ -1,17 +1,16 @@
 // Generated with util/create-component.js
-import React from "react";
 import "../tailwind.scss";
+
 import classnames from "classnames";
+import React from "react";
+
 import { Component } from "../shared";
 
-export interface CardProps extends Component {}
+export type CardProps = Component;
 
 const Panel: React.FC<CardProps> = ({ className, children, ...props }) => (
   <div
-    className={classnames(
-      "p-4 bg-dark-1 text-white w-auto",
-      className
-    )}
+    className={classnames("p-4 bg-dark-1 text-white w-auto", className)}
     {...props}
   >
     {children}

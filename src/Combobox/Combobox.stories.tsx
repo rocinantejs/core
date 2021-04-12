@@ -1,5 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
+
 import Combobox, { ComboboxItem } from "./Combobox";
 
 export default {
@@ -14,4 +15,4 @@ const items: ComboboxItem[] = [
   { name: "Item 5", value: "item5" },
 ];
 
-export const Component = () => <Combobox items={items} />;
+export const Component = (): React.ReactNode => <Combobox items={items} />;

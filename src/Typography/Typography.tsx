@@ -1,7 +1,9 @@
 // Generated with util/create-component.js
-import React from "react";
 import "../tailwind.scss";
+
 import classnames from "classnames";
+import React from "react";
+
 import { Component } from "../shared";
 
 const variants = {

@@ -1,5 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
+
 import Typography from "../Typography/Typography";
 import Navbar from "./Navbar";
 
@@ -7,7 +8,7 @@ export default {
   title: "Navbar",
 };
 
-export const Component = () => (
+export const Component = (): React.ReactNode => (
   <Navbar
     brand={<Typography variant="h1">Rocinante</Typography>}
     navLinks={
