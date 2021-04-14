@@ -7,20 +7,29 @@ import classnames from "classnames";
 import React from "react";
 
 import { Component } from "../shared";
+import Skeleton, { useSkeletonContext } from "../Skeleton";
 
 export interface CheckboxProps extends Component {
-  label?: string;
   checked?: boolean;
   onChanged?: (value: boolean) => void;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
-  label,
   className,
   checked,
   onChanged,
   ...props
 }) => {
+  const { showSkeleton } = useSkeletonContext();
+
+  if (showSkeleton) {
+    return (
+      <Skeleton
+        className={classnames("inline-block h-6 w-10 rounded-full", className)}
+      />
+    );
+  }
+
   return (
     <>
       <div
@@ -45,11 +54,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           className="toggle-label block overflow-hidden h-6 rounded-full bg-dark-1 border border-dark-2 cursor-pointer shadow-inner"
         />
       </div>
-      {label && (
-        <label htmlFor="toggle" className="text-xs text-white">
-          {label}
-        </label>
-      )}
     </>
   );
 };

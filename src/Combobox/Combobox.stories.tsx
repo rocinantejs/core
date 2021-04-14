@@ -1,6 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 
+import { SkeletonContext } from "..";
 import Combobox, { ComboboxItem } from "./Combobox";
 
 export default {
@@ -16,3 +17,9 @@ const items: ComboboxItem[] = [
 ];
 
 export const Component = (): React.ReactNode => <Combobox items={items} />;
+
+export const Skeleton = (): React.ReactNode => (
+  <SkeletonContext.Provider value={{ showSkeleton: true }}>
+    <Combobox items={items} />
+  </SkeletonContext.Provider>
+);

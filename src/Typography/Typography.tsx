@@ -37,6 +37,11 @@ const variants = {
     fontSize: "text-base",
     fontWeight: "font-normal",
   },
+  label: {
+    tag: "label",
+    fontSize: "text-base",
+    fontWeight: "font-normal",
+  },
   small: {
     tag: "p",
     fontSize: "text-sm",
@@ -46,6 +51,7 @@ const variants = {
 
 export interface TypographyProps extends Component {
   variant?: keyof typeof variants;
+  htmlFor?: string;
 }
 
 const Typography: React.FC<TypographyProps> = ({

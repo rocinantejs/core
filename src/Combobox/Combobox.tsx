@@ -8,6 +8,7 @@ import React from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
+import { Skeleton, useSkeletonContext } from "..";
 import { Component } from "../shared";
 
 export interface ComboboxItem {
@@ -59,6 +60,16 @@ const Combobox: React.FC<ComboboxProps> = ({
     }
   );
 
+  const { showSkeleton } = useSkeletonContext();
+
+  if (showSkeleton) {
+    return (
+      <Skeleton
+        className={classnames("inline-block h-9 w-48 rounded", className)}
+      />
+    );
+  }
+
   return (
     <div {...props}>
       {label && <label {...getLabelProps()}>{label}</label>}
@@ -67,7 +78,7 @@ const Combobox: React.FC<ComboboxProps> = ({
           type="button"
           {...getToggleButtonProps({ ref: setReferenceElement })}
           className={classnames(
-            "flex px-4 pr-1 py-1 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50",
+            "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50",
             isOpen && "rounded-b-none"
           )}
         >

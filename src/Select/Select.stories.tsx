@@ -1,6 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 
+import { SkeletonContext } from "..";
 import Select, { SelectItem } from "./Select";
 
 export default {
@@ -16,3 +17,9 @@ const items: SelectItem[] = [
 ];
 
 export const Component = (): React.ReactNode => <Select items={items} />;
+
+export const Skeleton = (): React.ReactNode => (
+  <SkeletonContext.Provider value={{ showSkeleton: true }}>
+    <Select items={items} />
+  </SkeletonContext.Provider>
+);

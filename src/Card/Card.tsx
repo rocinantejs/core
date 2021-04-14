@@ -6,7 +6,9 @@ import React from "react";
 
 import { Component } from "../shared";
 
-export type CardProps = Component;
+export interface CardProps extends Component {
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
 
 const Card: React.FC<CardProps> = ({ className, children, ...props }) => (
   <div

@@ -8,6 +8,7 @@ import React from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
+import { Skeleton, useSkeletonContext } from "..";
 import { Component } from "../shared";
 
 export interface SelectItem {
@@ -57,6 +58,16 @@ const Select: React.FC<SelectProps> = ({
       placement: "bottom-start",
     }
   );
+
+  const { showSkeleton } = useSkeletonContext();
+
+  if (showSkeleton) {
+    return (
+      <Skeleton
+        className={classnames("inline-block h-9 w-48 rounded", className)}
+      />
+    );
+  }
 
   return (
     <div {...props}>

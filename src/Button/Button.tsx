@@ -5,6 +5,7 @@ import classnames from "classnames";
 import React, { PropsWithChildren } from "react";
 
 import { Component } from "../shared";
+import Skeleton, { useSkeletonContext } from "../Skeleton";
 
 export interface ButtonProps extends Component {
   variant?: "primary" | "secondary" | "flat";
@@ -16,7 +17,9 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   variant = "primary",
   ...props
 }) => {
-  const baseStyles = "px-4 py-1 rounded text-white transition-all ease-in-out";
+  const { showSkeleton } = useSkeletonContext();
+  const baseStyles =
+    "px-4 py-1 h-9 rounded text-white transition-all ease-in-out ";
 
   const variantStyles: { [key in typeof variant]: string } = {
     primary:
@@ -25,6 +28,14 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
       "shadow bg-dark-1 border-dark-2 border hover:bg-dark-0 hover:border-dark-1",
     flat: "hover:border-dark-2 border bg-dark-1 border-dark-1",
   };
+
+  if (showSkeleton) {
+    return (
+      <Skeleton
+        className={classnames("inline-block w-24", baseStyles, className)}
+      />
+    );
+  }
 
   return (
     <button
