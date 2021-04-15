@@ -8,7 +8,7 @@ export default {
   title: "Skeleton",
 };
 
-export const Component = () => (
+export const Component = (): React.ReactNode => (
   <Card>
     <Skeleton height="1rem" width="6rem" />
   </Card>

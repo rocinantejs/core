@@ -8,8 +8,8 @@ import React from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
-import { Skeleton, useSkeletonContext } from "..";
 import { Component } from "../shared";
+import Skeleton, { useSkeletonContext } from "../Skeleton";
 
 export interface SelectItem {
   name: string;
