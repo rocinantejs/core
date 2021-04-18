@@ -1,7 +1,6 @@
-// Generated with util/create-component.js
 import "../tailwind.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import React from "react";
 
 import { Component } from "../shared";
@@ -54,7 +53,7 @@ export interface TypographyProps extends Component {
   htmlFor?: string;
 }
 
-const Typography: React.FC<TypographyProps> = ({
+export const Typography: React.FC<TypographyProps> = ({
   variant = "p",
   className,
   children,
@@ -65,7 +64,7 @@ const Typography: React.FC<TypographyProps> = ({
 
   return (
     <ElementTagName
-      className={classnames(
+      className={classNames(
         variantProps.fontSize,
         variantProps.fontWeight,
         className
@@ -76,5 +75,3 @@ const Typography: React.FC<TypographyProps> = ({
     </ElementTagName>
   );
 };
-
-export default Typography;

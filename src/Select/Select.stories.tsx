@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
 import { SkeletonContext } from "..";
-import Select, { SelectItem } from "./Select";
+import { Select, SelectItem } from "./Select";
 
 export default {
   title: "Select",

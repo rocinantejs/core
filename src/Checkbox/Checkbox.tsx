@@ -1,20 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-// Generated with util/create-component.js
 import "../tailwind.scss";
 import "./Checkbox.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import React from "react";
 
 import { Component } from "../shared";
-import Skeleton, { useSkeletonContext } from "../Skeleton";
+import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface CheckboxProps extends Component {
   checked?: boolean;
   onChanged?: (value: boolean) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   checked,
   onChanged,
@@ -25,7 +24,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classnames("inline-block h-6 w-10 rounded-full", className)}
+        className={classNames("inline-block h-6 w-10 rounded-full", className)}
       />
     );
   }
@@ -33,7 +32,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <>
       <div
-        className={classnames(
+        className={classNames(
           "relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in",
           className
         )}
@@ -57,5 +56,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     </>
   );
 };
-
-export default Checkbox;

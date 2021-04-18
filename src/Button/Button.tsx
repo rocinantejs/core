@@ -1,12 +1,11 @@
-// Generated with util/create-component.js
 import "../tailwind.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import React, { PropsWithChildren } from "react";
 
-import Loading from "../Loading";
+import { Loading } from "../Loading";
 import { Component } from "../shared";
-import Skeleton, { useSkeletonContext } from "../Skeleton";
+import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface ButtonProps extends Component {
   variant?: "primary" | "secondary" | "flat";
@@ -15,7 +14,7 @@ export interface ButtonProps extends Component {
   onClick?: () => void;
 }
 
-const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
+export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   children,
   className,
   variant = "primary",
@@ -48,14 +47,14 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classnames(baseStyles, className, "inline-block w-24")}
+        className={classNames(baseStyles, className, "inline-block w-24")}
       />
     );
   }
 
   return (
     <button
-      className={classnames(
+      className={classNames(
         baseStyles,
         variantStyles[variant].base,
         !disabled && !loading && variantStyles[variant].hover,
@@ -72,11 +71,9 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
           className="absolute mx-auto left-2/4 transform -translate-x-2/4"
         />
       )}
-      <span className={classnames("flex items-center", loading && "invisible")}>
+      <span className={classNames("flex items-center", loading && "invisible")}>
         {children}
       </span>
     </button>
   );
 };
-
-export default Button;

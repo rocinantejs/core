@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import "../tailwind.scss";
 import "./Skeleton.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import React, { createContext, useContext } from "react";
 
 import { Component } from "../shared";
@@ -12,7 +11,7 @@ export interface SkeletonProps extends Component {
   height?: string;
 }
 
-const Skeleton: React.FC<SkeletonProps> = ({
+export const Skeleton: React.FC<SkeletonProps> = ({
   width,
   height,
   className,
@@ -20,7 +19,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(
+    className={classNames(
       "skeleton-box relative overflow-hidden bg-dark-2",
       className
     )}
@@ -30,8 +29,6 @@ const Skeleton: React.FC<SkeletonProps> = ({
     {children}
   </div>
 );
-
-export default Skeleton;
 
 export const SkeletonContext = createContext({ showSkeleton: false });
 

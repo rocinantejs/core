@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Button from "../Button";
-import ButtonGroup from "./ButtonGroup";
+import { Button } from "../Button";
+import { ButtonGroup } from "./ButtonGroup";
 
 export default {
   title: "ButtonGroup",

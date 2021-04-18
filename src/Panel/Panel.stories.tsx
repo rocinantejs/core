@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Typography from "../Typography/Typography";
-import Panel from "./Panel";
+import { Typography } from "../Typography/Typography";
+import { Panel } from "./Panel";
 
 export default {
   title: "Panel",

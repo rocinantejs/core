@@ -1,7 +1,6 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Typography from "./Typography";
+import { Typography } from "./Typography";
 
 export default {
   title: "Typography",

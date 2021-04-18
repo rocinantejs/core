@@ -1,1 +1,1 @@
-export { default } from "./Combobox";
+export { Combobox, ComboboxProps, ComboboxItem } from "./Combobox";

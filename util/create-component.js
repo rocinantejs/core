@@ -3,10 +3,9 @@ const fs = require("fs");
 
 const component = require("./templates/component");
 const componentStories = require("./templates/component.stories");
-const componentStyles = require("./templates/component.scss");
 const componentIndex = require("./templates/index.js");
 
-const templates = [component, componentStories, componentStyles, componentIndex];
+const templates = [component, componentStories, componentIndex];
 
 const componentName = process.argv[2];
 

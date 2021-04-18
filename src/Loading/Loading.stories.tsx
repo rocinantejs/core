@@ -1,7 +1,6 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Loading from "./Loading";
+import { Loading } from "./Loading";
 
 export default {
   title: "Loading",

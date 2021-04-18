@@ -1,7 +1,6 @@
-// Generated with util/create-component.js
 import "../tailwind.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import React from "react";
 
 import { Component } from "../shared";
@@ -11,13 +10,13 @@ interface LoadingProps extends Component {
   width?: string;
 }
 
-const Loading: React.FC<LoadingProps> = ({
+export const Loading: React.FC<LoadingProps> = ({
   className,
   height = "140",
   width = "135",
   ...props
 }) => (
-  <div className={classnames(className)} {...props}>
+  <div className={classNames(className)} {...props}>
     <svg
       width={width}
       height={height}
@@ -118,5 +117,3 @@ const Loading: React.FC<LoadingProps> = ({
     </svg>
   </div>
 );
-
-export default Loading;

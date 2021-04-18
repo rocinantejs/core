@@ -1,2 +1,1 @@
-// Generated with util/create-component.js
-export { default } from "./Loading";
+export { Loading } from "./Loading";

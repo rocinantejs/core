@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Typography from "../Typography/Typography";
-import Card from "./Card";
+import { Typography } from "../Typography/Typography";
+import { Card } from "./Card";
 
 export default {
   title: "Card",

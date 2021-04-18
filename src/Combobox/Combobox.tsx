@@ -1,15 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-// Generated with util/create-component.js
 import "../tailwind.scss";
 
-import classnames from "classnames";
+import classNames from "classnames";
 import { useCombobox } from "downshift";
 import React from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
 import { Component } from "../shared";
-import Skeleton, { useSkeletonContext } from "../Skeleton";
+import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface ComboboxItem {
   name: string;
@@ -24,7 +23,7 @@ export interface ComboboxProps extends Component {
   onItemSelected?: (item?: ComboboxItem) => void;
 }
 
-const Combobox: React.FC<ComboboxProps> = ({
+export const Combobox: React.FC<ComboboxProps> = ({
   items,
   label,
   className,
@@ -65,7 +64,7 @@ const Combobox: React.FC<ComboboxProps> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classnames("inline-block h-9 w-48 rounded", className)}
+        className={classNames("inline-block h-9 w-48 rounded", className)}
       />
     );
   }
@@ -77,14 +76,14 @@ const Combobox: React.FC<ComboboxProps> = ({
         <button
           type="button"
           {...getToggleButtonProps({ ref: setReferenceElement })}
-          className={classnames(
+          className={classNames(
             "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50",
             isOpen && "rounded-b-none"
           )}
         >
           <input {...getInputProps()} className="bg-transparent" />
           <MdChevronRight
-            className={classnames(
+            className={classNames(
               "self-center  mx-1 transition-all ease-in-out",
               isOpen && "transform rotate-90"
             )}
@@ -98,7 +97,7 @@ const Combobox: React.FC<ComboboxProps> = ({
       >
         <ul
           {...getMenuProps()}
-          className={classnames(
+          className={classNames(
             "rounded-b shadow text-white bg-dark-1 border-dark-2 flex flex-col",
             isOpen && "border"
           )}
@@ -119,5 +118,3 @@ const Combobox: React.FC<ComboboxProps> = ({
     </div>
   );
 };
-
-export default Combobox;

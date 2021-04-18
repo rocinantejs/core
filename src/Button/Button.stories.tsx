@@ -1,9 +1,8 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Card from "../Card";
+import { Card } from "../Card";
 import { SkeletonContext } from "../Skeleton/Skeleton";
-import Button from "./Button";
+import { Button } from "./Button";
 
 export default {
   title: "Button",

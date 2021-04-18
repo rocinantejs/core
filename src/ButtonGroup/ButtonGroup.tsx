@@ -1,6 +1,4 @@
-// Generated with util/create-component.js
 import "../tailwind.scss";
-import "./ButtonGroup.scss";
 
 import classNames from "classnames";
 import React, { ReactElement, useState } from "react";
@@ -14,7 +12,7 @@ export interface ButtonGroupProps extends Component {
   onSelected?: (index: number) => void;
 }
 
-const ButtonGroup: React.FC<ButtonGroupProps> = ({
+export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
   className,
   selected,
@@ -55,5 +53,3 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
     </div>
   );
 };
-
-export default ButtonGroup;

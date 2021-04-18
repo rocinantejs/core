@@ -1,9 +1,8 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Button from "../Button";
-import Typography from "../Typography/Typography";
-import Navbar from "./Navbar";
+import { Button } from "../Button";
+import { Typography } from "../Typography/Typography";
+import { Navbar } from "./Navbar";
 
 export default {
   title: "Navbar",

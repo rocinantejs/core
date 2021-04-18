@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
 import { SkeletonContext } from "..";
-import Combobox, { ComboboxItem } from "./Combobox";
+import { Combobox, ComboboxItem } from "./Combobox";
 
 export default {
   title: "Combobox",

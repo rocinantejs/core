@@ -1,6 +1,5 @@
 module.exports = (componentName) => ({
-  content: `// Generated with util/create-component.js
-export { default } from "./${componentName}";
+  content: `export { ${componentName}, ${componentName}Props } from "./${componentName}";
 `,
   extension: `.ts`,
   overrideName: `index`,

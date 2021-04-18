@@ -1,8 +1,7 @@
-// Generated with util/create-component.js
 import React from "react";
 
-import Card from "../Card";
-import Skeleton from "./Skeleton";
+import { Card } from "../Card";
+import { Skeleton } from "./Skeleton";
 
 export default {
   title: "Skeleton",
