@@ -9,3 +9,5 @@ export * from "./Panel";
 export * from "./Select";
 export * from "./Skeleton";
 export * from "./Typography";
+export * from "./TextInput";
+export * from "./NumberInput";

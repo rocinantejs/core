@@ -24,7 +24,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
 }) => {
   const { showSkeleton } = useSkeletonContext();
   const baseStyles =
-    "px-4 py-1 h-9 rounded text-white transition-all ease-in-out flex items-center relative";
+    "px-4 py-1 rounded text-white transition-all ease-in-out flex items-center relative";
 
   const variantStyles: {
     [key in typeof variant]: { base: string; hover: string };

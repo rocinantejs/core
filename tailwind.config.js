@@ -22,7 +22,7 @@ module.exports = {
     transitionProperty: ["hover", "focus"],
     backgroundSize: ["hover", "focus"],
     backgroundPosition: ["hover", "focus", "checked"],
-    borderColor: ["hover", "checked"],
+    borderColor: ["hover", "checked", "focus"],
     borderWidth: ["hover", "checked"],
     boxShadow: ["hover", "focus"],
     inset: ["checked"],

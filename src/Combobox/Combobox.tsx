@@ -77,7 +77,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
           type="button"
           {...getToggleButtonProps({ ref: setReferenceElement })}
           className={classNames(
-            "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50",
+            "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50 focus:border-blue-500",
             isOpen && "rounded-b-none"
           )}
         >
