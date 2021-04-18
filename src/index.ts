@@ -1,4 +1,5 @@
 import Button from "./Button";
+import ButtonGroup from "./ButtonGroup";
 import Card from "./Card";
 import Checkbox from "./Checkbox";
 import Combobox from "./Combobox";
@@ -22,4 +23,5 @@ export {
   useSkeletonContext,
   SkeletonContext,
   Loading,
+  ButtonGroup,
 };

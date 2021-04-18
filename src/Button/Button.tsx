@@ -12,6 +12,7 @@ export interface ButtonProps extends Component {
   variant?: "primary" | "secondary" | "flat";
   disabled?: boolean;
   loading?: boolean;
+  onClick?: () => void;
 }
 
 const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
