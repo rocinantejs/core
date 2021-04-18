@@ -12,7 +12,7 @@ export default {
 export const Primary = (): React.ReactNode => (
   <>
     <Button>Click me!</Button>
-    <Card style={{ display: "inline", marginLeft: "1rem" }}>
+    <Card style={{ marginTop: "1rem" }}>
       <Button>Click me!</Button>
     </Card>
   </>
@@ -21,7 +21,7 @@ export const Primary = (): React.ReactNode => (
 export const Secondary = (): React.ReactNode => (
   <>
     <Button variant="secondary">Click me!</Button>
-    <Card style={{ display: "inline", marginLeft: "1rem" }}>
+    <Card style={{ marginTop: "1rem" }}>
       <Button variant="secondary">Click me!</Button>
     </Card>
   </>
@@ -30,7 +30,7 @@ export const Secondary = (): React.ReactNode => (
 export const Flat = (): React.ReactNode => (
   <>
     <Button variant="flat">Click me!</Button>
-    <Card style={{ display: "inline", marginLeft: "1rem" }}>
+    <Card style={{ marginTop: "1rem" }}>
       <Button variant="flat">Click me!</Button>
     </Card>
   </>

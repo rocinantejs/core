@@ -19,7 +19,7 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
 }) => {
   const { showSkeleton } = useSkeletonContext();
   const baseStyles =
-    "px-4 py-1 h-9 rounded text-white transition-all ease-in-out ";
+    "px-4 py-1 h-9 rounded text-white transition-all ease-in-out flex items-center";
 
   const variantStyles: { [key in typeof variant]: string } = {
     primary:
@@ -32,7 +32,7 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classnames("inline-block w-24", baseStyles, className)}
+        className={classnames(baseStyles, className, "inline-block w-24")}
       />
     );
   }
