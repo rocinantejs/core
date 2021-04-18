@@ -2,6 +2,7 @@ import Button from "./Button";
 import Card from "./Card";
 import Checkbox from "./Checkbox";
 import Combobox from "./Combobox";
+import Loading from "./Loading";
 import Navbar from "./Navbar";
 import Panel from "./Panel";
 import Select from "./Select";
@@ -20,4 +21,5 @@ export {
   Skeleton,
   useSkeletonContext,
   SkeletonContext,
+  Loading,
 };
