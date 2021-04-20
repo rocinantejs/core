@@ -5,9 +5,9 @@ import React, { useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 import { Button } from "../Button";
-import { Component } from "../shared";
+import { InputComponent, inputVariantColorMap } from "../shared";
 
-export interface NumberInputProps extends Component {
+export interface NumberInputProps extends InputComponent {
   value?: number;
   onChange?: (value: number) => void;
 }
@@ -16,6 +16,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   className,
   value = 0,
   onChange,
+  variant = "dark",
   ...props
 }) => {
   const [textValue, setTextValue] = useState<string>(value.toString());
@@ -62,7 +63,8 @@ export const NumberInput: React.FC<NumberInputProps> = ({
     <span className="flex">
       <input
         className={classNames(
-          "flex px-4 py-1 h-9 rounded-l shadow text-white bg-dark-1 border border-dark-2 focus:border-blue-500",
+          "flex px-4 py-1 h-9 rounded-l shadow text-white border border-dark-2 focus:border-blue-500",
+          inputVariantColorMap[variant],
           className
         )}
         value={textValue}

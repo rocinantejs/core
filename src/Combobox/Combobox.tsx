@@ -7,7 +7,7 @@ import React from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
-import { Component } from "../shared";
+import { InputComponent, inputVariantColorMap } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface ComboboxItem {
@@ -15,7 +15,7 @@ export interface ComboboxItem {
   value: string;
 }
 
-export interface ComboboxProps extends Component {
+export interface ComboboxProps extends InputComponent {
   items: ComboboxItem[];
   label?: string;
   placeHolder?: string;
@@ -30,6 +30,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   selectedItem: selectedItemProp,
   onItemSelected,
   placeHolder,
+  variant = "dark",
   ...props
 }) => {
   const {
@@ -77,7 +78,8 @@ export const Combobox: React.FC<ComboboxProps> = ({
           type="button"
           {...getToggleButtonProps({ ref: setReferenceElement })}
           className={classNames(
-            "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out bg-dark-1 border-dark-2 border hover:bg-opacity-50 focus:border-blue-500",
+            "flex px-4 pr-1 py-1 h-9 rounded shadow text-white transition-all ease-in-out border-dark-2 border hover:bg-opacity-50 focus:border-blue-500",
+            inputVariantColorMap[variant],
             isOpen && "rounded-b-none"
           )}
         >
@@ -98,14 +100,15 @@ export const Combobox: React.FC<ComboboxProps> = ({
         <ul
           {...getMenuProps()}
           className={classNames(
-            "rounded-b shadow text-white bg-dark-1 border-dark-2 flex flex-col",
+            "rounded-b shadow text-white border-dark-2 flex flex-col",
+            inputVariantColorMap[variant],
             isOpen && "border"
           )}
         >
           {isOpen &&
             items.map((item, index) => (
               <li
-                className="px-4 p-1 transition-all ease-in-out  min-w-full hover:bg-dark-0"
+                className="px-4 p-1 transition-all ease-in-out  min-w-full hover:bg-dark-3"
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}

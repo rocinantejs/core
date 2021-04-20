@@ -3,9 +3,9 @@ import "../tailwind.scss";
 import classNames from "classnames";
 import React from "react";
 
-import { Component } from "../shared";
+import { InputComponent, inputVariantColorMap } from "../shared";
 
-export interface TextInputProps extends Component {
+export interface TextInputProps extends InputComponent {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
@@ -18,16 +18,18 @@ export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   password,
+  variant = "dark",
   ...props
 }) => (
   <input
     className={classNames(
-      "flex px-4 py-1 h-9 rounded shadow text-white bg-dark-1 border border-dark-2 focus:border-blue-500",
+      "flex px-4 py-1 h-9 rounded shadow text-white border border-dark-2 focus:border-blue-500",
+      inputVariantColorMap[variant],
       className
     )}
     placeholder={placeholder}
     value={value}
-    type={password ? "text" : "password"}
+    type={password ? "password" : "text"}
     {...props}
   />
 );
