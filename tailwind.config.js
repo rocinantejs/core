@@ -13,9 +13,14 @@ module.exports = {
   theme: {
     backgroundColor: colors,
     borderColor: colors,
-    backgroundSize: {
-      "200%": "200%",
-    },
+    extend: {
+      backgroundSize: {
+        "200%": "200%",
+      },
+      boxShadow: {
+        'red': '0 2px 4px 0 rgba(255, 0, 0, 0.50)',
+      }
+    }
   },
   variants: {
     animation: ["hover", "focus"],

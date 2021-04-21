@@ -8,6 +8,7 @@ export interface Component {
 
 export interface InputComponent extends Component {
   variant?: "dark" | "med";
+  error?: boolean;
 }
 
 export const inputVariantColorMap: Record<InputComponent["variant"], string> = {

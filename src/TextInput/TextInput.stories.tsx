@@ -9,3 +9,7 @@ export default {
 export const Component = (): React.ReactElement => (
   <TextInput placeholder="bar" />
 );
+
+export const Error = (): React.ReactElement => (
+  <TextInput placeholder="bar" error />
+);

@@ -31,7 +31,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   } = {
     primary: {
       base:
-        "shadow border-blue-500 border bg-gradient-to-r from-indigo-500 to-purple-400 via-blue-500 bg-200%",
+        "shadow border-blue-500 border bg-gradient-to-r from-indigo-500 to-indigo-500 via-blue-500 bg-200%",
       hover: "hover:bg-right",
     },
     secondary: {

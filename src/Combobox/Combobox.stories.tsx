@@ -17,6 +17,8 @@ const items: ComboboxItem[] = [
 
 export const Component = (): React.ReactNode => <Combobox items={items} />;
 
+export const Error = (): React.ReactNode => <Combobox items={items} error />;
+
 export const Skeleton = (): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
     <Combobox items={items} />

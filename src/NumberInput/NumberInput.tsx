@@ -17,6 +17,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   value = 0,
   onChange,
   variant = "dark",
+  error,
   ...props
 }) => {
   const [textValue, setTextValue] = useState<string>(value.toString());
@@ -63,8 +64,11 @@ export const NumberInput: React.FC<NumberInputProps> = ({
     <span className="flex">
       <input
         className={classNames(
-          "flex px-4 py-1 h-9 rounded-l shadow text-white border border-dark-2 focus:border-blue-500",
+          "flex px-4 py-1 h-9 rounded-l text-white border",
           inputVariantColorMap[variant],
+          error
+            ? "shadow-red border-red-500"
+            : "shadow border-dark-2 focus:border-blue-500",
           className
         )}
         value={textValue}

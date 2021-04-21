@@ -17,6 +17,8 @@ const items: SelectItem[] = [
 
 export const Component = (): React.ReactNode => <Select items={items} />;
 
+export const Error = (): React.ReactNode => <Select items={items} error />;
+
 export const Skeleton = (): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
     <Select items={items} />

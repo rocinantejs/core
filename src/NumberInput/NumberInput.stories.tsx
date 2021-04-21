@@ -7,3 +7,5 @@ export default {
 };
 
 export const Component = (): React.ReactElement => <NumberInput />;
+
+export const Error = (): React.ReactElement => <NumberInput error />;
