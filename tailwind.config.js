@@ -3,8 +3,8 @@ const colors = (theme) => ({
   "dark-0": "#201E20",
   "dark-1": "#2C2D31",
   "dark-2": "#343539",
-  "dark-3": "#969696"
-})
+  "dark-3": "#969696",
+});
 
 // tailwind.config.js
 module.exports = {
@@ -18,9 +18,18 @@ module.exports = {
         "200%": "200%",
       },
       boxShadow: {
-        'red': '0 2px 4px 0 rgba(255, 0, 0, 0.50)',
-      }
-    }
+        red: "0 2px 4px 0 rgba(255, 0, 0, 0.50)",
+      },
+      animation: {
+        "bg-scroll": "bg-scroll 2s ease-in-out infinite",
+      },
+      keyframes: {
+        "bg-scroll": {
+          "0%, 100%": { "background-position": "right" },
+          "50%": { "background-position": "left" },
+        },
+      },
+    },
   },
   variants: {
     animation: ["hover", "focus"],
