@@ -1,4 +1,4 @@
-.toggle-checkbox:checked + label >.toggle-label {
+.toggle-radio:checked + label > .toggle-radio-label {
   @apply bg-gradient-to-r;
   @apply from-indigo-500;
   @apply to-blue-500;
