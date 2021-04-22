@@ -47,7 +47,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classNames(baseStyles, className, "inline-block w-24")}
+        className={classNames(baseStyles, className, "h-9 inline-block w-24")}
       />
     );
   }

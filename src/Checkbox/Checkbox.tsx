@@ -55,7 +55,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         htmlFor={id}
         className="flex items-center cursor-pointer text-white"
       >
-        <span className="toggle-label block overflow-hidden h-6 w-10 mr-2 rounded-full bg-dark-1 border border-dark-2 cursor-pointer shadow-inner" />
+        <span className="toggle-label block overflow-hidden h-6 w-10 mr-2 rounded-full bg-dark-0 border border-dark-2 cursor-pointer shadow-inner" />
         {label}
       </label>
     </div>

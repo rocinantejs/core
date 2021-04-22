@@ -5,4 +5,5 @@ export default create({
   appBg: '#2C2D31',
   appContentBg: '#201E20',
   appBorderColor: '#343539',
+  inputBg: '#2C2D31',
 });
