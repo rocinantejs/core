@@ -1,7 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { Card } from "../Card";
 import { SkeletonContext } from "../Skeleton/Skeleton";
 import { Button } from "./Button";
 

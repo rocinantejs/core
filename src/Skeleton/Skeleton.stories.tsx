@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { Card } from "../Card";
 import { Skeleton } from "./Skeleton";
 
 export default {
-  title: "Skeleton",
-};
+  title: "Other/Skeleton",
+  component: Skeleton,
+} as Meta;
 
 export const Component = (): React.ReactNode => (
   <Card>

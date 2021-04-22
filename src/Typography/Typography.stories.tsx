@@ -1,10 +1,12 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { Typography } from "./Typography";
 
 export default {
-  title: "Typography",
-};
+  title: "Text/Typography",
+  component: Typography,
+} as Meta;
 
 export const Header1 = (): React.ReactNode => (
   <Typography variant="h1">H1 Header</Typography>

@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "..";
 import { Select, SelectItem } from "./Select";
 
 export default {
-  title: "Select",
-};
+  title: "Input/Select",
+  component: Select,
+} as Meta;
 
 const items: SelectItem[] = [
   { name: "Item 1", value: "item1" },

@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "../Skeleton";
 import { Radio } from "./Radio";
 
 export default {
-  title: "Radio",
-};
+  title: "Input/Radio",
+  component: Radio,
+} as Meta;
 
 export const Component = (): React.ReactElement => (
   <div>

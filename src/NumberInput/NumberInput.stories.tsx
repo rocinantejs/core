@@ -1,10 +1,12 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { NumberInput } from "./NumberInput";
 
 export default {
-  title: "NumberInput",
-};
+  title: "Input/NumberInput",
+  component: NumberInput,
+} as Meta;
 
 export const Component = (): React.ReactElement => <NumberInput />;
 

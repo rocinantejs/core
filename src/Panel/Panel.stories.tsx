@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { Typography } from "../Typography/Typography";
 import { Panel } from "./Panel";
 
 export default {
-  title: "Panel",
-};
+  title: "Layout/Panel",
+  component: Panel,
+} as Meta;
 
 export const Component = (): React.ReactNode => (
   <Panel>

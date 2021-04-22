@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "..";
 import { Combobox, ComboboxItem } from "./Combobox";
 
 export default {
-  title: "Combobox",
-};
+  title: "Input/Combobox",
+  component: Combobox,
+} as Meta;
 
 const items: ComboboxItem[] = [
   { name: "Item 1", value: "item1" },

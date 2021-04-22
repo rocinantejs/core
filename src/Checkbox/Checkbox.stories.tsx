@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "../Skeleton";
 import { Checkbox } from "./Checkbox";
 
 export default {
-  title: "Checkbox",
-};
+  title: "Input/Checkbox",
+  component: Checkbox,
+} as Meta;
 
 export const Component = (): React.ReactNode => <Checkbox label="A Checkbox" />;
 
