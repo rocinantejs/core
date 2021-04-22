@@ -17,7 +17,6 @@ export interface ComboboxItem {
 
 export interface ComboboxProps extends InputComponent {
   items: ComboboxItem[];
-  label?: string;
   placeHolder?: string;
   selectedItem?: ComboboxItem;
   onItemSelected?: (item?: ComboboxItem) => void;
@@ -25,7 +24,6 @@ export interface ComboboxProps extends InputComponent {
 
 export const Combobox: React.FC<ComboboxProps> = ({
   items,
-  label,
   className,
   selectedItem: selectedItemProp,
   onItemSelected,
@@ -37,7 +35,6 @@ export const Combobox: React.FC<ComboboxProps> = ({
   const {
     isOpen,
     getToggleButtonProps,
-    getLabelProps,
     getMenuProps,
     getInputProps,
     getComboboxProps,
@@ -72,33 +69,39 @@ export const Combobox: React.FC<ComboboxProps> = ({
   }
 
   return (
-    <div {...props}>
-      {label && <label {...getLabelProps()}>{label}</label>}
-      <div {...getComboboxProps()}>
-        <button
-          type="button"
-          {...getToggleButtonProps({ ref: setReferenceElement })}
+    <div {...getComboboxProps()} className="flex">
+      <button
+        type="button"
+        {...getToggleButtonProps({ ref: setReferenceElement })}
+        className={classNames(
+          "flex flex-1 px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50",
+          inputVariantColorMap[variant],
+          error
+            ? "shadow-red border-red-500"
+            : "shadow border-dark-2 focus:border-blue-500",
+          isOpen && "rounded-b-none",
+          className
+        )}
+        {...props}
+      >
+        <input
+          {...getInputProps()}
+          className="bg-transparent flex-1"
+          placeholder={placeHolder}
+        />
+        <MdChevronRight
           className={classNames(
-            "flex px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50",
-            inputVariantColorMap[variant],
-            error
-              ? "shadow-red border-red-500"
-              : "shadow border-dark-2 focus:border-blue-500",
-            isOpen && "rounded-b-none"
+            "self-center  mx-1 transition-all ease-in-out",
+            isOpen && "transform rotate-90"
           )}
-        >
-          <input {...getInputProps()} className="bg-transparent" />
-          <MdChevronRight
-            className={classNames(
-              "self-center  mx-1 transition-all ease-in-out",
-              isOpen && "transform rotate-90"
-            )}
-          />
-        </button>
-      </div>
+        />
+      </button>
       <div
         ref={setPopperElement}
-        style={popperStyles.popper}
+        style={{
+          ...popperStyles.popper,
+          minWidth: referenceElement?.scrollWidth,
+        }}
         {...attributes.popper}
       >
         <ul

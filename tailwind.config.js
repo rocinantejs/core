@@ -29,6 +29,9 @@ module.exports = {
           "50%": { "background-position": "left" },
         },
       },
+      fontFamily: {
+        title: ["'Russo One'"],
+      },
     },
   },
   variants: {
