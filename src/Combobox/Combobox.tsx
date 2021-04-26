@@ -68,25 +68,33 @@ export const Combobox: React.FC<ComboboxProps> = ({
     );
   }
 
+  const stateMap = {
+    error: {
+      open: "shadow rounded-b-none rounded-t-none border-blue-500",
+      default: "shadow-red border-red-500",
+    },
+    default: {
+      open: "shadow rounded-b-none rounded-t-none border-blue-500",
+      default: "border-dark-2 shadow focus:border-blue-500",
+    },
+  };
+
   return (
-    <div {...getComboboxProps()} className="flex">
+    <div {...getComboboxProps()} className="flex outline-none">
       <button
         type="button"
         {...getToggleButtonProps({ ref: setReferenceElement })}
         className={classNames(
-          "flex flex-1 px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50",
+          "flex flex-1 px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50 outline-none focus:outline-none",
           inputVariantColorMap[variant],
-          error
-            ? "shadow-red border-red-500"
-            : "shadow border-dark-2 focus:border-blue-500",
-          isOpen && "rounded-b-none",
+          stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
           className
         )}
         {...props}
       >
         <input
           {...getInputProps()}
-          className="bg-transparent flex-1"
+          className="bg-transparent flex-1 outline-none"
           placeholder={placeHolder}
         />
         <MdChevronRight

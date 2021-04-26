@@ -19,6 +19,8 @@ module.exports = {
       },
       boxShadow: {
         red: "0 2px 4px 0 rgba(255, 0, 0, 0.50)",
+        blue: "0 2px 4px 0 rgba(59, 130, 246, 0.50)",
+        dark: "0 2px 4px 0 #343539"
       },
       animation: {
         "bg-scroll": "bg-scroll 2s ease-in-out infinite",

@@ -24,7 +24,7 @@ export const TextInput: React.FC<TextInputProps> = ({
 }) => (
   <input
     className={classNames(
-      "flex px-4 py-1 h-9 rounded  text-white border",
+      "flex px-4 py-1 h-9 rounded text-white border transition-all outline-none",
       inputVariantColorMap[variant],
       error
         ? "shadow-red border-red-500"

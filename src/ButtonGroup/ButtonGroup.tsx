@@ -37,7 +37,11 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
       else if (index === buttons.length - 1) clazz = "rounded-l-none";
       else clazz = "rounded-l-none rounded-r-none";
 
-      const childClassNames = classNames(child.props.className, clazz);
+      const childClassNames = classNames(
+        child.props.className,
+        "flex-1",
+        clazz
+      );
 
       return React.cloneElement(child, {
         className: childClassNames,

@@ -53,7 +53,7 @@ export const Radio: React.FC<RadioProps> = ({
         htmlFor={id}
         className="flex items-center cursor-pointer text-white"
       >
-        <span className="toggle-radio-label w-4 h-4 inline-block mr-2 rounded-full bg-dark-0 border border-dark-2" />
+        <span className="toggle-radio-label w-4 h-4 inline-block mr-2 rounded-full bg-dark-0 border border-dark-2 transition-all" />
         {label}
       </label>
     </div>

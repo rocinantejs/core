@@ -67,25 +67,33 @@ export const Select: React.FC<SelectProps> = ({
     );
   }
 
+  const stateMap = {
+    error: {
+      open: "shadow rounded-b-none rounded-t-none border-blue-500",
+      default: "shadow-red border-red-500",
+    },
+    default: {
+      open: "shadow rounded-b-none rounded-t-none border-blue-500",
+      default: "border-dark-2 shadow focus:border-blue-500",
+    },
+  };
+
   return (
     <button
       type="button"
       {...getToggleButtonProps({ ref: setReferenceElement })}
       className={classNames(
-        "flex px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50",
+        "flex px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50 outline-none focus:outline-none",
         inputVariantColorMap[variant],
-        error
-          ? "shadow-red border-red-500"
-          : "shadow border-dark-2 focus:border-blue-500",
-        isOpen && "rounded-b-none",
+        stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
         className
       )}
       {...props}
     >
       <div
         className={classNames(
-          "flex-1 text-justify",
-          !selectedItem && "text-gray-400 "
+          "flex-1 text-justify outline-none",
+          !selectedItem && "text-gray-400"
         )}
       >
         {selectedItem?.name || placeHolder || "Select..."}
