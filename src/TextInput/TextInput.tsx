@@ -34,6 +34,7 @@ export const TextInput: React.FC<TextInputProps> = ({
     placeholder={placeholder}
     value={value}
     type={password ? "password" : "text"}
+    onChange={(e) => onChange(e.target.value)}
     {...props}
   />
 );
