@@ -11,6 +11,7 @@ export interface ButtonProps extends Component {
   variant?: "primary" | "secondary" | "flat" | "danger";
   disabled?: boolean;
   loading?: boolean;
+  submit?: boolean;
   onClick?: () => void;
 }
 
@@ -20,6 +21,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   variant = "primary",
   disabled = false,
   loading = false,
+  submit = false,
   ...props
 }) => {
   const { showSkeleton } = useSkeletonContext();
@@ -66,7 +68,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
         (disabled || loading) && "opacity-75 cursor-not-allowed",
         className
       )}
-      type="button"
+      type={submit ? "submit" : "button"}
       {...props}
     >
       {loading && (
