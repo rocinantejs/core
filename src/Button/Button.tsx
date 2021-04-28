@@ -78,7 +78,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
       )}
       <span
         className={classNames(
-          "flex w-full justify-center",
+          "flex w-full justify-center items-center",
           loading && "invisible"
         )}
       >
