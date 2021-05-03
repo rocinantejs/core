@@ -8,43 +8,43 @@ import { Component } from "../shared";
 const variants = {
   h1: {
     tag: "h1",
-    fontSize: "text-3xl",
-    fontWeight: "font-semibold",
+    fontSize: "rcn-text-3xl",
+    fontWeight: "rcn-font-semibold",
   },
   h2: {
     tag: "h2",
-    fontSize: "text-2xl",
-    fontWeight: "font-semibold",
+    fontSize: "rcn-text-2xl",
+    fontWeight: "rcn-font-semibold",
   },
   h3: {
     tag: "h3",
-    fontSize: "text-xl",
-    fontWeight: "font-semibold",
+    fontSize: "rcn-text-xl",
+    fontWeight: "rcn-font-semibold",
   },
   h4: {
     tag: "h4",
-    fontSize: "text-lg",
-    fontWeight: "font-semibold",
+    fontSize: "rcn-text-lg",
+    fontWeight: "rcn-font-semibold",
   },
   h5: {
     tag: "h5",
-    fontSize: "text-base",
-    fontWeight: "font-semibold",
+    fontSize: "rcn-text-base",
+    fontWeight: "rcn-font-semibold",
   },
   p: {
     tag: "p",
-    fontSize: "text-base",
-    fontWeight: "font-normal",
+    fontSize: "rcn-text-base",
+    fontWeight: "rcn-font-normal",
   },
   label: {
     tag: "label",
-    fontSize: "text-base",
-    fontWeight: "font-normal",
+    fontSize: "rcn-text-base",
+    fontWeight: "rcn-font-normal",
   },
   small: {
     tag: "p",
-    fontSize: "text-sm",
-    fontWeight: "font-light",
+    fontSize: "rcn-text-sm",
+    fontWeight: "rcn-font-light",
   },
 };
 

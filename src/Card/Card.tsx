@@ -16,7 +16,7 @@ export const Card: React.FC<CardProps> = ({
 }) => (
   <div
     className={classNames(
-      "p-4 bg-dark-1 rounded-md shadow text-white w-auto",
+      "rcn-p-4 rcn-bg-dark-1 rcn-rounded-md rcn-shadow rcn-text-white rcn-w-auto",
       className
     )}
     {...props}

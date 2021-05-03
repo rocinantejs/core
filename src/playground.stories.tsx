@@ -28,9 +28,9 @@ const items: SelectItem[] = [
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Playground = () => (
-  <div className="bg-dark-0 p-10 flex flex-wrap max-w-5xl">
-    <Panel className="flex-1 mr-10 mb-10 space-y-2">
-      <Typography className="font-title mb-4" variant="h1">
+  <div className="rcn-bg-dark-0 rcn-p-10 rcn-flex rcn-flex-wrap rcn-max-w-5xl">
+    <Panel className="rcn-flex-1 rcn-mr-10 rcn-mb-10 rcn-space-y-2">
+      <Typography className="font-title rcn-mb-4" variant="h1">
         Typography
       </Typography>
       <Typography variant="h1">Heading 1</Typography>
@@ -42,12 +42,12 @@ export const Playground = () => (
       <Typography variant="label">Label</Typography>
       <Typography variant="small">small</Typography>
     </Panel>
-    <Card className="flex-1 mb-10">
-      <Typography className="font-title mb-4" variant="h1">
+    <Card className="rcn-flex-1 rcn-mb-10">
+      <Typography className="font-title rcn-mb-4" variant="h1">
         Inputs
       </Typography>
-      <div className="flex space-x-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Regular
           </Typography>
@@ -56,7 +56,7 @@ export const Playground = () => (
           <Select items={items} placeHolder="Select" />
           <Combobox items={items} placeHolder="Combobox" />
         </div>
-        <div className="flex-1 flex flex-col space-y-4">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Error
           </Typography>
@@ -67,17 +67,17 @@ export const Playground = () => (
         </div>
       </div>
     </Card>
-    <Panel className="flex-1 mr-10 space-y-2">
-      <Typography className="font-title mb-4" variant="h1">
+    <Panel className="rcn-flex-1 rcn-mr-10 rcn-space-y-2">
+      <Typography className="font-title rcn-mb-4" variant="h1">
         Buttons
       </Typography>
-      <div className="flex space-x-8 mb-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8 rcn-mb-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Button>Primary</Button>
           <Button disabled>Primary Disabled</Button>
           <Button loading>Primary Loading</Button>
         </div>
-        <div className="flex-1 flex flex-col space-y-4">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Button variant="danger">Danger</Button>
           <Button variant="danger" disabled>
             Danger Disabled
@@ -87,8 +87,8 @@ export const Playground = () => (
           </Button>
         </div>
       </div>
-      <div className="flex space-x-8 mb-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8 rcn-mb-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Button variant="secondary">Secondary</Button>
           <Button variant="secondary" disabled>
             Secondary Disabled
@@ -97,7 +97,7 @@ export const Playground = () => (
             Secondary Loading
           </Button>
         </div>
-        <div className="flex-1 flex flex-col space-y-4">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Button variant="flat">Flat</Button>
           <Button variant="flat" disabled>
             Flat Disabled
@@ -107,8 +107,8 @@ export const Playground = () => (
           </Button>
         </div>
       </div>
-      <div className="flex space-x-8 mb-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8 rcn-mb-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <ButtonGroup>
             <Button>One</Button>
             <Button>two</Button>
@@ -118,12 +118,12 @@ export const Playground = () => (
         </div>
       </div>
     </Panel>
-    <Card className="flex-1 mb-10">
-      <Typography className="font-title mb-4" variant="h1">
+    <Card className="rcn-flex-1 rcn-mb-10">
+      <Typography className="font-title rcn-mb-4" variant="h1">
         Special
       </Typography>
-      <div className="flex space-x-8 mb-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8 rcn-mb-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Radio
           </Typography>
@@ -131,7 +131,7 @@ export const Playground = () => (
           <Radio name="example" label="Option 2" />
           <Radio name="example" label="Option 3" />
         </div>
-        <div className="flex-1 flex flex-col space-y-4">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Checkbox
           </Typography>
@@ -140,8 +140,8 @@ export const Playground = () => (
           <Checkbox label="Option 3" />
         </div>
       </div>
-      <div className="flex space-x-8">
-        <div className="flex-1 flex flex-col space-y-4">
+      <div className="rcn-flex rcn-space-x-8">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Progress
           </Typography>
@@ -149,7 +149,7 @@ export const Playground = () => (
           <Progress progress={70} />
           <Progress progress={30} />
         </div>
-        <div className="flex-1 flex flex-col space-y-4">
+        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
             Checkbox
           </Typography>

@@ -27,16 +27,24 @@ export const Radio: React.FC<RadioProps> = ({
 
   if (showSkeleton) {
     return (
-      <div className={classNames("relative flex items-center mb-4", className)}>
-        <Skeleton className="inline-block h-4 w-4 rounded-full mr-2" />
-        <Skeleton className="inline-block h-4 w-20 rounded" />
+      <div
+        className={classNames(
+          "rcn-relative rcn-flex rcn-items-center rcn-mb-4",
+          className
+        )}
+      >
+        <Skeleton className="rcn-inline-block rcn-h-4 rcn-w-4 rcn-rounded-full rcn-mr-2" />
+        <Skeleton className="rcn-inline-block rcn-h-4 rcn-w-20 rcn-rounded" />
       </div>
     );
   }
 
   return (
     <div
-      className={classNames("flex items-center mr-4 mb-4", className)}
+      className={classNames(
+        "rcn-flex rcn-items-center rcn-mr-4 rcn-mb-4",
+        className
+      )}
       {...props}
     >
       <input
@@ -47,13 +55,13 @@ export const Radio: React.FC<RadioProps> = ({
         onClick={(e) =>
           onChanged && onChanged((e.target as HTMLInputElement).checked)
         }
-        className="toggle-radio appearance-none"
+        className="toggle-radio rcn-appearance-none"
       />
       <label
         htmlFor={id}
-        className="flex items-center cursor-pointer text-white"
+        className="rcn-flex rcn-items-center rcn-cursor-pointer rcn-text-white"
       >
-        <span className="toggle-radio-label w-4 h-4 inline-block mr-2 rounded-full bg-dark-0 border border-dark-2 transition-all" />
+        <span className="toggle-radio-label rcn-w-4 rcn-h-4 rcn-inline-block rcn-mr-2 rcn-rounded-full rcn-bg-dark-0 rcn-border rcn-border-dark-2 rcn-transition-all" />
         {label}
       </label>
     </div>

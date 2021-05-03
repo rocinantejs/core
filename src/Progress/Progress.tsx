@@ -14,13 +14,13 @@ export const Progress: React.FC<ProgressProps> = ({
   className,
   ...props
 }) => (
-  <div className={classNames("relative", className)} {...props}>
-    <div className="relative overflow-hidden h-2 mb-4 text-xs flex rounded bg-dark-0 border border-dark-2">
-      <div className="shadow-none w-full flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-indigo-500 to-purple-500 via-blue-500 bg-200% animate-bg-scroll" />
+  <div className={classNames("rcn-relative", className)} {...props}>
+    <div className="rcn-relative rcn-overflow-hidden rcn-h-2 rcn-mb-4 rcn-text-xs rcn-flex rcn-rounded rcn-bg-dark-0 rcn-border rcn-border-dark-2">
+      <div className="rcn-shadow-none rcn-w-full rcn-flex rcn-flex-col rcn-text-center rcn-whitespace-nowrap rcn-text-white rcn-justify-center rcn-bg-gradient-to-r rcn-from-indigo-500 rcn-to-purple-500 rcn-via-blue-500 rcn-bg-200% rcn-animate-bg-scroll" />
       {progress !== undefined && (
         <div
           style={{ width: `${100 - progress}%` }}
-          className="absolute h-2 right-0 shadow-none w-full flex flex-col text-center whitespace-nowrap text-white justify-center bg-dark-0"
+          className="rcn-absolute rcn-h-2 rcn-right-0 rcn-shadow-none rcn-w-full rcn-flex rcn-flex-col rcn-text-center rcn-whitespace-nowrap rcn-text-white rcn-justify-center rcn-bg-dark-0"
         />
       )}
     </div>

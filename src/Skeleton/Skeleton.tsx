@@ -20,7 +20,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 }) => (
   <div
     className={classNames(
-      "skeleton-box relative overflow-hidden bg-dark-2",
+      "skeleton-box rcn-relative rcn-overflow-hidden rcn-bg-dark-2",
       className
     )}
     style={{ width, height }}

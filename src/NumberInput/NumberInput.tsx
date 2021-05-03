@@ -61,14 +61,14 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   };
 
   return (
-    <span className="flex">
+    <span className="rcn-flex">
       <input
         className={classNames(
-          "flex-1 px-4 py-1 h-9 rounded-l text-white border transition-all outline-none",
+          "rcn-flex-1 rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded-l rcn-text-white rcn-border rcn-transition-all rcn-outline-none",
           inputVariantColorMap[variant],
           error
-            ? "shadow-red border-red-500"
-            : "shadow border-dark-2 focus:border-blue-500",
+            ? "rcn-shadow-red rcn-border-red-500"
+            : "rcn-shadow rcn-border-dark-2 focus:rcn-border-blue-500",
           className
         )}
         value={textValue}
@@ -80,14 +80,14 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       <span>
         <Button
           variant="secondary"
-          className="h-2/4 rounded-l-none rounded-br-none pt-0 pb-0 pl-2 pr-2"
+          className="rcn-h-2/4 rcn-rounded-l-none rcn-rounded-br-none rcn-pt-0 rcn-pb-0 rcn-pl-2 rcn-pr-2"
           onClick={() => onNumberButtonClick(1)}
         >
           <MdExpandLess />
         </Button>
         <Button
           variant="secondary"
-          className="h-2/4 rounded-l-none rounded-tr-none pt-0 pb-0  pl-2 pr-2"
+          className="rcn-h-2/4 rcn-rounded-l-none rcn-rounded-tr-none rcn-pt-0 rcn-pb-0  rcn-pl-2 rcn-pr-2"
           onClick={() => onNumberButtonClick(-1)}
         >
           <MdExpandMore />

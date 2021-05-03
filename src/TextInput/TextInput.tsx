@@ -24,17 +24,17 @@ export const TextInput: React.FC<TextInputProps> = ({
 }) => (
   <input
     className={classNames(
-      "flex px-4 py-1 h-9 rounded text-white border transition-all outline-none",
+      "rcn-flex rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-border rcn-transition-all rcn-outline-none",
       inputVariantColorMap[variant],
       error
-        ? "shadow-red border-red-500"
-        : "shadow border-dark-2 focus:border-blue-500",
+        ? "rcn-shadow-red rcn-border-red-500"
+        : "rcn-shadow rcn-border-dark-2 focus:rcn-border-blue-500",
       className
     )}
     placeholder={placeholder}
     value={value}
     type={password ? "password" : "text"}
-    onChange={(e) => onChange(e.target.value)}
+    onChange={(e) => onChange && onChange(e.target.value)}
     {...props}
   />
 );

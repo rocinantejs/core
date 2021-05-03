@@ -33,13 +33,13 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
 
     return buttons.map((child: ReactElement<ButtonProps>, index: number) => {
       let clazz = "";
-      if (index === 0) clazz = "rounded-r-none";
-      else if (index === buttons.length - 1) clazz = "rounded-l-none";
-      else clazz = "rounded-l-none rounded-r-none";
+      if (index === 0) clazz = "rcn-rounded-r-none";
+      else if (index === buttons.length - 1) clazz = "rcn-rounded-l-none";
+      else clazz = "rcn-rounded-l-none rcn-rounded-r-none";
 
       const childClassNames = classNames(
         child.props.className,
-        "flex-1",
+        "rcn-flex-1",
         clazz
       );
 
@@ -52,7 +52,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   };
 
   return (
-    <div className={classNames("flex", className)} {...props}>
+    <div className={classNames("rcn-flex", className)} {...props}>
       {getChildComponents()}
     </div>
   );

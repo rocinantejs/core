@@ -13,7 +13,10 @@ export const Panel: React.FC<PanelProps> = ({
   ...props
 }) => (
   <div
-    className={classNames("p-4 bg-dark-1 text-white w-auto", className)}
+    className={classNames(
+      "rcn-p-4 rcn-bg-dark-1 rcn-text-white rcn-w-auto",
+      className
+    )}
     {...props}
   >
     {children}

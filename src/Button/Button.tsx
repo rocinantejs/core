@@ -26,35 +26,39 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
 }) => {
   const { showSkeleton } = useSkeletonContext();
   const baseStyles =
-    "px-4 py-1 rounded text-white transition-all ease-in-out flex items-center relative outline-none focus:outline-none";
+    "rcn-px-4 rcn-py-1 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-flex rcn-items-center rcn-relative rcn-outline-none focus:rcn-outline-none";
 
   const variantStyles: {
     [key in typeof variant]: { base: string; hover: string };
   } = {
     primary: {
       base:
-        "shadow border-blue-500 border bg-gradient-to-r from-indigo-500 to-indigo-500 via-blue-500 bg-200% focus:shadow-blue",
-      hover: "hover:bg-right",
+        "rcn-shadow rcn-border-blue-500 rcn-border rcn-bg-gradient-to-r rcn-from-indigo-500 rcn-to-indigo-500 rcn-via-blue-500 rcn-bg-200% focus:rcn-shadow-blue",
+      hover: "hover:rcn-bg-right",
     },
     danger: {
       base:
-        "shadow border-red-500 border bg-gradient-to-r from-red-600 to-red-600 via-red-500 bg-200% focus:shadow-red",
-      hover: "hover:bg-right",
+        "rcn-shadow rcn-border-red-500 rcn-border rcn-bg-gradient-to-r rcn-from-red-600 rcn-to-red-600 rcn-via-red-500 rcn-bg-200% focus:rcn-shadow-red",
+      hover: "hover:rcn-bg-right",
     },
     secondary: {
-      base: "shadow bg-dark-1 border-dark-2 border focus:shadow-dark",
-      hover: "hover:bg-dark-0 hover:border-dark-1",
+      base: "rcn-shadow rcn-bg-dark-1 rcn-border-dark-2 rcn-border focus:rcn-shadow-dark",
+      hover: "hover:rcn-bg-dark-0 hover:rcn-border-dark-1",
     },
     flat: {
-      base: "border bg-dark-1 border-dark-1 focus:shadow-dark",
-      hover: "hover:border-dark-2",
+      base: "rcn-border rcn-bg-dark-1 rcn-border-dark-1 focus:rcn-shadow-dark",
+      hover: "hover:rcn-border-dark-2",
     },
   };
 
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classNames(baseStyles, className, "h-9 inline-block w-24")}
+        className={classNames(
+          baseStyles,
+          className,
+          "rcn-h-9 rcn-inline-block rcn-w-24"
+        )}
       />
     );
   }
@@ -65,7 +69,7 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
         baseStyles,
         variantStyles[variant].base,
         !disabled && !loading && variantStyles[variant].hover,
-        (disabled || loading) && "opacity-75 cursor-not-allowed",
+        (disabled || loading) && "rcn-opacity-75 rcn-cursor-not-allowed",
         className
       )}
       type={submit ? "submit" : "button"}
@@ -75,13 +79,13 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
         <Loading
           height="1.5rem"
           width="2rem"
-          className="absolute mx-auto left-2/4 transform -translate-x-2/4"
+          className="rcn-absolute rcn-mx-auto rcn-left-2/4 rcn-transform rcn--translate-x-2/4"
         />
       )}
       <span
         className={classNames(
-          "flex w-full justify-center items-center",
-          loading && "invisible"
+          "rcn-flex rcn-w-full rcn-justify-center rcn-items-center",
+          loading && "rcn-invisible"
         )}
       >
         {children}

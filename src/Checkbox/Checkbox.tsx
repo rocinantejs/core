@@ -26,9 +26,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   if (showSkeleton) {
     return (
-      <div className={classNames("relative flex items-center", className)}>
-        <Skeleton className="inline-block h-6 w-10 rounded-full mr-2" />
-        <Skeleton className="inline-block h-4 w-20 rounded" />
+      <div
+        className={classNames(
+          "rcn-relative rcn-flex rcn-items-center",
+          className
+        )}
+      >
+        <Skeleton className="rcn-inline-block rcn-h-6 rcn-w-10 rcn-rounded-full rcn-mr-2" />
+        <Skeleton className="rcn-inline-block rcn-h-4 rcn-w-20 rcn-rounded" />
       </div>
     );
   }
@@ -36,7 +41,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <div
       className={classNames(
-        "relative inline-block mr-2 align-middle select-none transition duration-200 ease-in",
+        "rcn-relative rcn-inline-block rcn-mr-2 rcn-align-middle rcn-select-none rcn-transition rcn-duration-200 rcn-ease-in",
         className
       )}
       {...props}
@@ -49,13 +54,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         onClick={(e) =>
           onChanged && onChanged((e.target as HTMLInputElement).checked)
         }
-        className="toggle-checkbox absolute block w-4 h-4 top-1 left-1 rounded-full bg-gray-300 shadow appearance-none cursor-pointer checked:right-1 checked:left-5 transition-all"
+        className="toggle-checkbox rcn-absolute rcn-block rcn-w-4 rcn-h-4 rcn-top-1 rcn-left-1 rcn-rounded-full rcn-bg-gray-300 rcn-shadow rcn-appearance-none rcn-cursor-pointer checked:rcn-right-1 checked:rcn-left-5 rcn-transition-all"
       />
       <label
         htmlFor={id}
-        className="flex items-center cursor-pointer text-white"
+        className="rcn-flex rcn-items-center rcn-cursor-pointer rcn-text-white"
       >
-        <span className="toggle-label block overflow-hidden h-6 w-10 mr-2 rounded-full bg-dark-0 border border-dark-2 cursor-pointer shadow-inner" />
+        <span className="toggle-label rcn-block rcn-overflow-hidden rcn-h-6 rcn-w-10 rcn-mr-2 rcn-rounded-full rcn-bg-dark-0 rcn-border rcn-border-dark-2 rcn-cursor-pointer rcn-shadow-inner" />
         {label}
       </label>
     </div>

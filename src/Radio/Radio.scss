@@ -1,6 +1,6 @@
 .toggle-radio:checked + label > .toggle-radio-label {
-  @apply bg-gradient-to-r;
-  @apply from-indigo-500;
-  @apply to-blue-500;
-  @apply border-blue-500;
+  @apply rcn-bg-gradient-to-r;
+  @apply rcn-from-indigo-500;
+  @apply rcn-to-blue-500;
+  @apply rcn-border-blue-500;
 }

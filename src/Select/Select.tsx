@@ -62,19 +62,24 @@ export const Select: React.FC<SelectProps> = ({
   if (showSkeleton) {
     return (
       <Skeleton
-        className={classNames("inline-block h-9 w-48 rounded", className)}
+        className={classNames(
+          "rcn-inline-block rcn-h-9 rcn-w-48 rcn-rounded",
+          className
+        )}
       />
     );
   }
 
   const stateMap = {
     error: {
-      open: "shadow rounded-b-none rounded-t-none border-blue-500",
-      default: "shadow-red border-red-500",
+      open:
+        "rcn-shadow rcn-rounded-b-none rcn-rounded-t-none rcn-border-blue-500",
+      default: "rcn-shadow-red rcn-border-red-500",
     },
     default: {
-      open: "shadow rounded-b-none rounded-t-none border-blue-500",
-      default: "border-dark-2 shadow focus:border-blue-500",
+      open:
+        "rcn-shadow rcn-rounded-b-none rcn-rounded-t-none rcn-border-blue-500",
+      default: "rcn-border-dark-2 rcn-shadow focus:rcn-border-blue-500",
     },
   };
 
@@ -83,7 +88,7 @@ export const Select: React.FC<SelectProps> = ({
       type="button"
       {...getToggleButtonProps({ ref: setReferenceElement })}
       className={classNames(
-        "flex px-4 pr-1 py-1 h-9 rounded text-white transition-all ease-in-out border hover:bg-opacity-50 outline-none focus:outline-none",
+        "rcn-flex rcn-px-4 rcn-pr-1 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
         inputVariantColorMap[variant],
         stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
         className
@@ -92,16 +97,16 @@ export const Select: React.FC<SelectProps> = ({
     >
       <div
         className={classNames(
-          "flex-1 text-justify outline-none",
-          !selectedItem && "text-gray-400"
+          "rcn-flex-1 rcn-text-justify rcn-outline-none",
+          !selectedItem && "rcn-text-gray-400"
         )}
       >
         {selectedItem?.name || placeHolder || "Select..."}
       </div>
       <MdChevronRight
         className={classNames(
-          "self-center  mx-1 transition-all ease-in-out",
-          isOpen && "transform rotate-90"
+          "rcn-self-center  rcn-mx-1 rcn-transition-all rcn-ease-in-out",
+          isOpen && "rcn-transform rcn-rotate-90"
         )}
       />
       <div
@@ -115,15 +120,15 @@ export const Select: React.FC<SelectProps> = ({
         <ul
           {...getMenuProps()}
           className={classNames(
-            "rounded-b shadow text-white border-dark-2 flex flex-col",
+            "rcn-rounded-b rcn-shadow rcn-text-white rcn-border-dark-2 rcn-flex rcn-flex-col",
             inputVariantColorMap[variant],
-            isOpen && "border"
+            isOpen && "rcn-border"
           )}
         >
           {isOpen &&
             items.map((item, index) => (
               <li
-                className="px-4 p-1 transition-all ease-in-out min-w-full hover:bg-dark-3 text-justify"
+                className="rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out rcn-min-w-full hover:rcn-bg-dark-3 rcn-text-justify"
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}

@@ -13,8 +13,8 @@ export interface InputComponent extends Component {
 }
 
 export const inputVariantColorMap: Record<InputComponent["variant"], string> = {
-  dark: "bg-dark-0",
-  med: "bg-dark-1",
+  dark: "rcn-bg-dark-0",
+  med: "rcn-bg-dark-1",
 };
 
 export const useUniqueId = (prefix: string): string => {

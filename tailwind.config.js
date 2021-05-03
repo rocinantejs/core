@@ -10,6 +10,7 @@ const colors = (theme) => ({
 module.exports = {
   purge: ["src/**/*.tsx"],
   darkMode: "media", // or 'media' or 'class'
+  prefix: "rcn-",
   theme: {
     backgroundColor: colors,
     borderColor: colors,
@@ -30,9 +31,6 @@ module.exports = {
           "0%, 100%": { "background-position": "right" },
           "50%": { "background-position": "left" },
         },
-      },
-      fontFamily: {
-        title: ["'Russo One'"],
       },
     },
   },
