@@ -41,6 +41,7 @@ export const Playground = () => (
       <Typography variant="p">Paragraph</Typography>
       <Typography variant="label">Label</Typography>
       <Typography variant="small">small</Typography>
+      <Typography variant="extraSmall">extra small</Typography>
     </Panel>
     <Card className="rcn-flex-1 rcn-mb-10">
       <Typography className="font-title rcn-mb-4" variant="h1">

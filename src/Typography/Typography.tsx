@@ -46,6 +46,11 @@ const variants = {
     fontSize: "rcn-text-sm",
     fontWeight: "rcn-font-light",
   },
+  extraSmall: {
+    tag: "p",
+    fontSize: "rcn-text-xs",
+    fontWeight: "rcn-font-light",
+  },
 };
 
 export interface TypographyProps extends Component {

@@ -29,3 +29,6 @@ export const Paragraph = (): React.ReactNode => (
 export const Small = (): React.ReactNode => (
   <Typography variant="small">Paragraph</Typography>
 );
+export const ExtraSmall = (): React.ReactNode => (
+  <Typography variant="extraSmall">Paragraph</Typography>
+);
