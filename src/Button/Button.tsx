@@ -42,7 +42,8 @@ export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
       hover: "hover:rcn-bg-right",
     },
     secondary: {
-      base: "rcn-shadow rcn-bg-dark-1 rcn-border-dark-2 rcn-border focus:rcn-shadow-dark",
+      base:
+        "rcn-shadow rcn-bg-dark-1 rcn-border-dark-2 rcn-border focus:rcn-shadow-dark",
       hover: "hover:rcn-bg-dark-0 hover:rcn-border-dark-1",
     },
     flat: {
