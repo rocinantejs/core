@@ -9,16 +9,22 @@ export interface TextInputProps extends InputComponent {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
-  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
   password?: boolean;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({
+type HtmlInputProps = Omit<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >,
+  keyof TextInputProps
+>;
+
+export const TextInput: React.FC<HtmlInputProps & TextInputProps> = ({
   placeholder,
   className,
   value,
   onChange,
-  onKeyPress,
   password,
   variant = "dark",
   error,
@@ -37,7 +43,6 @@ export const TextInput: React.FC<TextInputProps> = ({
     value={value}
     type={password ? "password" : "text"}
     onChange={(e) => onChange && onChange(e.target.value)}
-    onKeyPress={(e) => onKeyPress && onKeyPress(e)}
     {...props}
   />
 );

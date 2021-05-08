@@ -14,7 +14,15 @@ export interface RadioProps extends Component {
   onChanged?: (value: boolean) => void;
 }
 
-export const Radio: React.FC<RadioProps> = ({
+type HtmlInputProps = Omit<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >,
+  keyof RadioProps
+>;
+
+export const Radio: React.FC<HtmlInputProps & RadioProps> = ({
   checked,
   className,
   name,

@@ -1,7 +1,7 @@
 import "../tailwind.scss";
 
 import classNames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React from "react";
 
 import { Loading } from "../Loading";
 import { Component } from "../shared";
@@ -15,7 +15,15 @@ export interface ButtonProps extends Component {
   onClick?: () => void;
 }
 
-export const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
+type HtmlButtonProps = Omit<
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >,
+  keyof ButtonProps
+>;
+
+export const Button: React.FC<HtmlButtonProps & ButtonProps> = ({
   children,
   className,
   variant = "primary",

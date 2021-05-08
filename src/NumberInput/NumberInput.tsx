@@ -10,14 +10,20 @@ import { InputComponent, inputVariantColorMap } from "../shared";
 export interface NumberInputProps extends InputComponent {
   value?: number;
   onChange?: (value: number) => void;
-  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
-export const NumberInput: React.FC<NumberInputProps> = ({
+type HtmlInputProps = Omit<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >,
+  keyof NumberInputProps
+>;
+
+export const NumberInput: React.FC<HtmlInputProps & NumberInputProps> = ({
   className,
   value = 0,
   onChange,
-  onKeyPress,
   variant = "dark",
   error,
   ...props
@@ -76,7 +82,6 @@ export const NumberInput: React.FC<NumberInputProps> = ({
         value={textValue}
         type="text"
         onChange={onValueChanged}
-        onKeyPress={(e) => onKeyPress && onKeyPress(e)}
         onBlur={onBlur}
         {...props}
       />
