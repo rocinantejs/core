@@ -1,0 +1,33 @@
+#rcn-popper-arrow,
+#rcn-popper-arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+}
+
+#rcn-popper-arrow {
+  visibility: hidden;
+}
+
+#rcn-popper-arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+  background: inherit;
+}
+
+#rcn-popper[data-popper-placement^="top"] > #rcn-popper-arrow {
+  bottom: -4px;
+}
+
+#rcn-popper[data-popper-placement^="bottom"] > #rcn-popper-arrow {
+  top: -4px;
+}
+
+#rcn-popper[data-popper-placement^="left"] > #rcn-popper-arrow {
+  right: -4px;
+}
+
+#rcn-popper[data-popper-placement^="right"] > #rcn-popper-arrow {
+  left: -4px;
+}

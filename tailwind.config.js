@@ -3,7 +3,7 @@ const colors = (theme) => ({
   "dark-0": "#201E20",
   "dark-1": "#2C2D31",
   "dark-2": "#343539",
-  "dark-3": "#969696",
+  "dark-3": "#767881",
 });
 
 // tailwind.config.js

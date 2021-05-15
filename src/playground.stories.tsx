@@ -1,3 +1,5 @@
+import "./playground.scss";
+
 import { Meta } from "@storybook/react";
 import React from "react";
 
@@ -8,6 +10,7 @@ import { Checkbox } from "./Checkbox";
 import { Combobox } from "./Combobox";
 import { NumberInput } from "./NumberInput";
 import { Panel } from "./Panel";
+import { Popover } from "./Popover/Popover";
 import { Progress } from "./Progress";
 import { Radio } from "./Radio";
 import { Select, SelectItem } from "./Select";
@@ -152,11 +155,14 @@ export const Playground = () => (
         </div>
         <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
           <Typography className="font-title" variant="h2">
-            Checkbox
+            Popover
           </Typography>
-          <Checkbox label="Option 1" />
-          <Checkbox label="Option 2" />
-          <Checkbox label="Option 3" />
+          <Popover visible placement="bottom">
+            <div className="rcn-border-dashed rcn-border-gray-500 rcn-border rcn-text-white rcn-p-3 rcn-text-center">
+              Reference Element
+            </div>
+            I&apos;m a popover
+          </Popover>
         </div>
       </div>
     </Card>
