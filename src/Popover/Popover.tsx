@@ -64,7 +64,7 @@ export const Popover: React.FC<PopoverProps> = ({
     <>
       {React.cloneElement(refEl as React.ReactElement, {
         ref: setReferenceElement,
-        onClick: !controlled && handleRefClick,
+        onClick: !controlled ? handleRefClick : undefined,
       })}
       <Portal>
         <div
