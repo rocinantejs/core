@@ -16,18 +16,39 @@
   background: inherit;
 }
 
-#rcn-popper[data-popper-placement^="top"] > #rcn-popper-arrow {
+#rcn-popper[data-popper-placement^="top"] #rcn-popper-arrow {
   bottom: -4px;
 }
 
-#rcn-popper[data-popper-placement^="bottom"] > #rcn-popper-arrow {
+#rcn-popper[data-popper-placement^="bottom"] #rcn-popper-arrow {
   top: -4px;
 }
 
-#rcn-popper[data-popper-placement^="left"] > #rcn-popper-arrow {
+#rcn-popper[data-popper-placement^="left"] #rcn-popper-arrow {
   right: -4px;
 }
 
-#rcn-popper[data-popper-placement^="right"] > #rcn-popper-arrow {
+#rcn-popper[data-popper-placement^="right"] #rcn-popper-arrow {
   left: -4px;
+}
+
+.rcn-popover-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.rcn-popover-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms, transform 200ms;
+}
+.rcn-popover-transition-exit {
+  opacity: 1;
+}
+.rcn-popover-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 200ms, transform 200ms;
+}
+.rcn-popover-transition-exit-done {
+  opacity: 0;
 }

@@ -5,6 +5,7 @@ import "./Popover.scss";
 import classNames from "classnames";
 import React, { useState } from "react";
 import { PopperProps, usePopper } from "react-popper";
+import { CSSTransition } from "react-transition-group";
 import usePortal from "react-useportal";
 
 import { Card } from "../Card";
@@ -72,8 +73,13 @@ export const Popover: React.FC<PopoverProps> = ({
           style={popperStyles.popper}
           {...attributes.popper}
         >
-          {visibility && (
-            <>
+          <CSSTransition
+            in={visibility}
+            unmountOnExit
+            classNames="rcn-popover-transition"
+            timeout={300}
+          >
+            <div>
               <Card className={classNames("rcn-bg-dark-3", className)}>
                 {portalEl}
               </Card>
@@ -84,8 +90,8 @@ export const Popover: React.FC<PopoverProps> = ({
                 className={classNames("rcn-bg-dark-3", arrowClassName)}
                 data-popper-arrow
               />
-            </>
-          )}
+            </div>
+          </CSSTransition>
         </div>
       </Portal>
     </>
