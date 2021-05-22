@@ -2,8 +2,17 @@ import uniqueId from "lodash.uniqueid";
 import { CSSProperties, useState } from "react";
 
 export interface Component {
+  /**
+   * Class name to apply to the component
+   */
   className?: string;
+  /**
+   * Inline styles to apply the the component
+   */
   style?: CSSProperties;
+  /**
+   * Test id to apply to the component
+   */
   "data-testid"?: string;
 }
 

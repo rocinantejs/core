@@ -12,16 +12,33 @@ import { Card } from "../Card";
 import { Component } from "../shared";
 
 export interface PopoverProps extends Component {
+  /**
+   * The relative placement of the popover
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   placement?: PopperProps<any>["placement"];
+  /**
+   * Class name to applt to the popover arrow
+   */
   arrowClassName?: string;
+  /**
+   * Visibility of the popover
+   */
   visible?: boolean;
+  /**
+   * Should show overlay
+   */
   overlay?: boolean;
 }
 
+/**
+ * The Popover component can be used to display contextual information to an element, or even be used as an in-place modal.
+ *
+ * It is considered "controlled" when the property visible is defined, and will show or hide based on the value.
+ */
 export const Popover: React.FC<PopoverProps> = ({
   children,
-  placement,
+  placement = "auto",
   className,
   arrowClassName,
   visible,
