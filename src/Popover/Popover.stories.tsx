@@ -24,3 +24,10 @@ export const Uncontrolled = (): React.ReactElement => (
     I&apos;m a popover
   </Popover>
 );
+
+export const UncontrolledOverlay = (): React.ReactElement => (
+  <Popover overlay>
+    <Button>Click me!</Button>
+    I&apos;m a popover
+  </Popover>
+);

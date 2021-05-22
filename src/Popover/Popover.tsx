@@ -16,6 +16,7 @@ export interface PopoverProps extends Component {
   placement?: PopperProps<any>["placement"];
   arrowClassName?: string;
   visible?: boolean;
+  overlay?: boolean;
 }
 
 export const Popover: React.FC<PopoverProps> = ({
@@ -24,11 +25,12 @@ export const Popover: React.FC<PopoverProps> = ({
   className,
   arrowClassName,
   visible,
+  overlay,
 }) => {
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
   const [arrowElement, setArrowElement] = useState(null);
-  const [visibility, setVisibility] = useState(visible || false);
+  const [isVisible, setVisibility] = useState(visible || false);
   const { styles: popperStyles, attributes } = usePopper(
     referenceElement,
     popperElement,
@@ -55,8 +57,37 @@ export const Popover: React.FC<PopoverProps> = ({
   const portalEl = childrenArr[1];
 
   const handleRefClick = () => {
-    setVisibility(!visibility);
+    setVisibility(!isVisible);
   };
+
+  const handleClickOverlay = (
+    event:
+      | React.MouseEvent<HTMLDivElement>
+      | React.KeyboardEvent<HTMLDivElement>
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setVisibility(!isVisible);
+  };
+
+  const handleKeyDown = React.useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        setVisibility(!isVisible);
+      }
+    },
+    [isVisible]
+  );
+
+  // eslint-disable-next-line consistent-return
+  React.useEffect(() => {
+    if (isVisible) {
+      window.addEventListener("keydown", handleKeyDown, true);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown, true);
+      };
+    }
+  }, [isVisible, handleKeyDown]);
 
   const controlled = visible !== undefined;
 
@@ -67,6 +98,15 @@ export const Popover: React.FC<PopoverProps> = ({
         onClick: !controlled ? handleRefClick : undefined,
       })}
       <Portal>
+        {overlay && isVisible && (
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+          <div
+            role="dialog"
+            onClick={handleClickOverlay}
+            onKeyDown={handleClickOverlay}
+            className="rcn-fixed rcn-top-0 rcn-right-0 rcn-left-0 rcn-bottom-0"
+          />
+        )}
         <div
           id="rcn-popper"
           ref={setPopperElement}
@@ -74,7 +114,7 @@ export const Popover: React.FC<PopoverProps> = ({
           {...attributes.popper}
         >
           <CSSTransition
-            in={visibility}
+            in={isVisible}
             unmountOnExit
             classNames="rcn-popover-transition"
             timeout={300}
