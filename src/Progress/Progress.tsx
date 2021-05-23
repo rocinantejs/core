@@ -26,7 +26,7 @@ export const Progress: React.FC<ProgressProps> = ({
       {progress !== undefined && (
         <div
           style={{ width: `${100 - progress}%` }}
-          className="rcn-absolute rcn-h-2 rcn-right-0 rcn-shadow-none rcn-w-full rcn-flex rcn-flex-col rcn-text-center rcn-whitespace-nowrap rcn-text-white rcn-justify-center rcn-bg-dark-0"
+          className="rcn-absolute rcn-h-2 rcn-right-0 rcn-shadow-none rcn-w-full rcn-transition-width rcn-flex rcn-flex-col rcn-text-center rcn-whitespace-nowrap rcn-text-white rcn-justify-center rcn-bg-dark-0"
         />
       )}
     </div>
