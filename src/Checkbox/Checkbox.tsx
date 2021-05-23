@@ -9,11 +9,25 @@ import { Component, useUniqueId } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface CheckboxProps extends Component {
+  /**
+   * The label to display next to the checkbox
+   */
   label: string;
+  /**
+   * Setting this value will change the mode to controlled
+   */
   checked?: boolean;
+  /**
+   * Fired when the checkbox or label is clicked
+   */
   onChanged?: (value: boolean) => void;
 }
 
+/**
+ * The checkbox component is styled like a switch.
+ *
+ * Will display as a skeleton when inside an active skeleton context.
+ */
 export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   checked,

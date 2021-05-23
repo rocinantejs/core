@@ -7,11 +7,25 @@ import { ButtonProps } from "../Button/Button";
 import { Component } from "../shared";
 
 export interface ButtonGroupProps extends Component {
+  /**
+   * One or more buttons to include in the button bar
+   */
   children: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
+  /**
+   * The selected button index
+   */
   selected?: number;
+  /**
+   * Fired when a button is selected
+   */
   onSelected?: (index: number) => void;
 }
 
+/**
+ * The button group element shows a group of buttons, passed in a children, in a unified button bar.
+ *
+ * It has a selected button and an event that triggers when a button is selected
+ */
 export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
   className,

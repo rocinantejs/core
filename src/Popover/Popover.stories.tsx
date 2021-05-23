@@ -19,7 +19,6 @@ const ControlledStory = ({ ...args }: PopoverProps): React.ReactElement => (
 );
 
 export const Controlled = ControlledStory.bind({});
-
 Controlled.args = {
   placement: "auto",
   visible: true,
@@ -33,7 +32,6 @@ const UncontrolledStory = ({ ...args }: PopoverProps): React.ReactElement => (
 );
 
 export const Uncontrolled = UncontrolledStory.bind({});
-
 Uncontrolled.args = {
   placement: "auto",
   overlay: true,

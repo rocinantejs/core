@@ -11,17 +11,42 @@ import { InputComponent, inputVariantColorMap } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface ComboboxItem {
+  /**
+   * The name of the item
+   */
   name: string;
+  /**
+   * The value of the item
+   */
   value: string;
 }
 
 export interface ComboboxProps extends InputComponent {
+  /**
+   * A list of items to show in the combobox
+   */
   items: ComboboxItem[];
+  /**
+   * A placeholder to show
+   */
   placeHolder?: string;
+  /**
+   * The currently selected item
+   */
   selectedItem?: ComboboxItem;
+  /**
+   * Fires when an item is selected
+   */
   onItemSelected?: (item?: ComboboxItem) => void;
 }
 
+/**
+ * The combobox element is a select componet where a user can also type a value not present in the existing list
+ *
+ * Will display as a skeleton when inside an active skeleton context.
+ *
+ * Can show an error state when passed the error prop.
+ */
 export const Combobox: React.FC<ComboboxProps> = ({
   items,
   className,

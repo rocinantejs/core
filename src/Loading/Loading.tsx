@@ -5,7 +5,7 @@ import React from "react";
 
 import { Component } from "../shared";
 
-interface LoadingProps extends Component {
+export interface LoadingProps extends Component {
   height?: string;
   width?: string;
 }

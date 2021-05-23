@@ -2,16 +2,19 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { Typography } from "../Typography/Typography";
-import { Card } from "./Card";
+import { Card, CardProps } from "./Card";
 
 export default {
   title: "Layout/Card",
-  Component: Card,
+  component: Card,
 } as Meta;
 
-export const Component = (): React.ReactNode => (
-  <Card>
+const Template = ({ ...args }: CardProps): React.ReactNode => (
+  <Card {...args}>
     <Typography variant="h3">This is a card</Typography>
     <Typography>It can have content</Typography>
   </Card>
 );
+
+export const Default = Template.bind({});
+Default.args = {} as CardProps;

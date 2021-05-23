@@ -2,57 +2,37 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "../Skeleton/Skeleton";
-import { Button } from "./Button";
+import { Button, ButtonProps } from "./Button";
 
 export default {
   title: "Button",
   component: Button,
 } as Meta;
 
-export const Primary = (): React.ReactNode => <Button>Click me!</Button>;
-
-export const PrimaryDisabled = (): React.ReactNode => (
-  <Button disabled>Click me!</Button>
+const Template = ({ ...args }: ButtonProps): React.ReactNode => (
+  <Button {...args}>Click me!</Button>
 );
 
-export const PrimaryLoading = (): React.ReactNode => (
-  <Button loading>Click me!</Button>
-);
+export const Primary = Template.bind({});
+Primary.args = {} as ButtonProps;
+export const Disabled = Template.bind({});
+Disabled.args = { disabled: true } as ButtonProps;
+export const Loading = Template.bind({});
+Loading.args = { loading: true } as ButtonProps;
+export const Secondary = Template.bind({});
+Secondary.args = { variant: "secondary" } as ButtonProps;
 
-export const Secondary = (): React.ReactNode => (
-  <Button variant="secondary">Click me!</Button>
-);
+export const Flat = Template.bind({});
+Flat.args = { variant: "flat" } as ButtonProps;
 
-export const SecondaryDisabled = (): React.ReactNode => (
-  <Button variant="secondary" disabled>
-    Click me!
-  </Button>
-);
+export const Danger = Template.bind({});
+Danger.args = { variant: "danger" } as ButtonProps;
 
-export const SecondaryLoading = (): React.ReactNode => (
-  <Button variant="secondary" loading>
-    Click me!
-  </Button>
-);
-
-export const Flat = (): React.ReactNode => (
-  <Button variant="flat">Click me!</Button>
-);
-
-export const FlatDisabled = (): React.ReactNode => (
-  <Button variant="flat" disabled>
-    Click me!
-  </Button>
-);
-
-export const FlatLoading = (): React.ReactNode => (
-  <Button variant="flat" loading>
-    Click me!
-  </Button>
-);
-
-export const Skeleton = (): React.ReactNode => (
+const SkeletonStory = ({ ...args }: ButtonProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
-    <Button variant="flat">Click me!</Button>
+    <Button {...args}>Click me!</Button>
   </SkeletonContext.Provider>
 );
+
+export const Skeleton = SkeletonStory.bind({});
+Skeleton.args = { variant: "danger" } as ButtonProps;

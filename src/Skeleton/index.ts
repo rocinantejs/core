@@ -1,6 +1,2 @@
-export {
-  Skeleton,
-  SkeletonProps,
-  useSkeletonContext,
-  SkeletonContext,
-} from "./Skeleton";
+export { Skeleton, useSkeletonContext, SkeletonContext } from "./Skeleton";
+export type { SkeletonProps } from "./Skeleton";

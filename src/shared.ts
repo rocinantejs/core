@@ -17,7 +17,13 @@ export interface Component {
 }
 
 export interface InputComponent extends Component {
+  /**
+   * Visual style variant
+   */
   variant?: "dark" | "med";
+  /**
+   * Is the value in an error state
+   */
   error?: boolean;
 }
 

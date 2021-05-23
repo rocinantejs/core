@@ -6,9 +6,15 @@ import React from "react";
 import { Component } from "../shared";
 
 export interface CardProps extends Component {
+  /**
+   * Fired when the card is clicked
+   */
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+/**
+ * The Card component is a simple component used for styling and layout
+ */
 export const Card: React.FC<CardProps> = ({
   className,
   children,
