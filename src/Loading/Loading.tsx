@@ -5,11 +5,20 @@ import React from "react";
 
 import { Component } from "../shared";
 
-interface LoadingProps extends Component {
+export interface LoadingProps extends Component {
+  /**
+   * The height of the element
+   */
   height?: string;
+  /**
+   * The width of the element
+   */
   width?: string;
 }
 
+/**
+ * The loading component renders an animated SVG loading spinner
+ */
 export const Loading: React.FC<LoadingProps> = ({
   className,
   height = "140",

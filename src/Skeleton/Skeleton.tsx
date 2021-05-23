@@ -7,10 +7,19 @@ import React, { createContext, useContext } from "react";
 import { Component } from "../shared";
 
 export interface SkeletonProps extends Component {
+  /**
+   * Width of the skeleton, accepts valid css width values.
+   */
   width?: string;
+  /**
+   * Height of the skeleton, accepts valid css height values.
+   */
   height?: string;
 }
 
+/**
+ * The skeleton component should be used in palce of other elements when a loading state effects their contents
+ */
 export const Skeleton: React.FC<SkeletonProps> = ({
   width,
   height,

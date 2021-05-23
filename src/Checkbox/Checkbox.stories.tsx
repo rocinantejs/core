@@ -2,17 +2,29 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "../Skeleton";
-import { Checkbox } from "./Checkbox";
+import { Checkbox, CheckboxProps } from "./Checkbox";
 
 export default {
   title: "Input/Checkbox",
   component: Checkbox,
 } as Meta;
 
-export const Component = (): React.ReactNode => <Checkbox label="A Checkbox" />;
+const Template = ({ ...args }: CheckboxProps): React.ReactNode => (
+  <Checkbox {...args} />
+);
 
-export const Skeleton = (): React.ReactNode => (
+export const Default = Template.bind({});
+Default.args = {
+  label: "A Checkbox",
+} as CheckboxProps;
+
+const SkeletonStory = ({ ...args }: CheckboxProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
-    <Checkbox label="A Checkbox" />
+    <Checkbox {...args} />
   </SkeletonContext.Provider>
 );
+
+export const Skeleton = SkeletonStory.bind({});
+Skeleton.args = {
+  label: "A Checkbox",
+} as CheckboxProps;

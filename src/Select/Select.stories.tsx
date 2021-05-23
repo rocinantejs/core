@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "..";
-import { Select, SelectItem } from "./Select";
+import { Select, SelectItem, SelectProps } from "./Select";
 
 export default {
   title: "Input/Select",
@@ -17,12 +17,31 @@ const items: SelectItem[] = [
   { name: "Item 5", value: "item5" },
 ];
 
-export const Component = (): React.ReactNode => <Select items={items} />;
+const Template = ({ ...args }: SelectProps): React.ReactNode => (
+  <Select {...args} />
+);
 
-export const Error = (): React.ReactNode => <Select items={items} error />;
+export const Default = Template.bind({});
+Default.args = {
+  items,
+  placeHolder: "Select...",
+} as SelectProps;
 
-export const Skeleton = (): React.ReactNode => (
+export const Error = Template.bind({});
+Error.args = {
+  items,
+  placeHolder: "Select...",
+  error: true,
+} as SelectProps;
+
+const SkeletonStory = ({ ...args }: SelectProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
-    <Select items={items} />
+    <Select {...args} />
   </SkeletonContext.Provider>
 );
+
+export const Skeleton = SkeletonStory.bind({});
+Skeleton.args = {
+  items,
+  placeHolder: "Select...",
+} as SelectProps;

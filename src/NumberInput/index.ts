@@ -1,1 +1,2 @@
-export { NumberInput, NumberInputProps } from "./NumberInput";
+export { NumberInput } from "./NumberInput";
+export type { NumberInputProps } from "./NumberInput";

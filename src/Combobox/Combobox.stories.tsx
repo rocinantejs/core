@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { SkeletonContext } from "..";
-import { Combobox, ComboboxItem } from "./Combobox";
+import { Combobox, ComboboxItem, ComboboxProps } from "./Combobox";
 
 export default {
   title: "Input/Combobox",
@@ -17,12 +17,31 @@ const items: ComboboxItem[] = [
   { name: "Item 5", value: "item5" },
 ];
 
-export const Component = (): React.ReactNode => <Combobox items={items} />;
+const Template = ({ ...args }: ComboboxProps): React.ReactNode => (
+  <Combobox {...args} />
+);
 
-export const Error = (): React.ReactNode => <Combobox items={items} error />;
+export const Default = Template.bind({});
+Default.args = {
+  items,
+  placeHolder: "Select...",
+} as ComboboxProps;
 
-export const Skeleton = (): React.ReactNode => (
+export const Error = Template.bind({});
+Error.args = {
+  items,
+  placeHolder: "Select...",
+  error: true,
+} as ComboboxProps;
+
+const SkeletonStory = ({ ...args }: ComboboxProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
-    <Combobox items={items} />
+    <Combobox {...args} />
   </SkeletonContext.Provider>
 );
+
+export const Skeleton = SkeletonStory.bind({});
+Skeleton.args = {
+  items,
+  placeHolder: "Select...",
+} as ComboboxProps;

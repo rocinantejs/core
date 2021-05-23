@@ -8,10 +8,23 @@ import { Component } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface ButtonProps extends Component {
+  /**
+   * The variant prop controls the visual appearance of the button
+   */
   variant?: "primary" | "secondary" | "flat" | "danger";
+  /**
+   * Toggles the disabled state
+   */
   disabled?: boolean;
+  /**
+   * Toggles the loading state
+   */
   loading?: boolean;
+  /**
+   * Sets if the button is a form submit button
+   */
   submit?: boolean;
+  /** Triggered when clicked */
   onClick?: () => void;
 }
 
@@ -23,6 +36,11 @@ type HtmlButtonProps = Omit<
   keyof ButtonProps
 >;
 
+/**
+ * The button element has different appearances that can be changed by the "variant" prop.
+ *
+ * It can show a loading state via the "loading" prop and will display as a skeleton when inside an active skeleton context.
+ */
 export const Button = React.forwardRef<
   HTMLButtonElement,
   HtmlButtonProps & ButtonProps

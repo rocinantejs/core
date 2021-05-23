@@ -8,7 +8,13 @@ import { Button } from "../Button";
 import { InputComponent, inputVariantColorMap } from "../shared";
 
 export interface NumberInputProps extends InputComponent {
+  /**
+   * Current numerical value
+   */
   value?: number;
+  /**
+   * Fired when the value is changed
+   */
   onChange?: (value: number) => void;
 }
 
@@ -20,6 +26,9 @@ type HtmlInputProps = Omit<
   keyof NumberInputProps
 >;
 
+/**
+ * The number input accepts any numeric input. The value can be changed in integer increments by the buttons.
+ */
 export const NumberInput: React.FC<HtmlInputProps & NumberInputProps> = ({
   className,
   value = 0,

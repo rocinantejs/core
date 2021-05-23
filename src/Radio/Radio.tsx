@@ -8,9 +8,22 @@ import { Component, useUniqueId } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface RadioProps extends Component {
+  /**
+   * Name of the radio group
+   */
   name: string;
+  /**
+   * The label to display next to the radio
+   */
   label: string;
+  /**
+   * Sets if the radio is checked
+   * Setting this value will change the mode to controlled
+   */
   checked?: boolean;
+  /**
+   * Fired when the radio or label is clicked
+   */
   onChanged?: (value: boolean) => void;
 }
 
@@ -22,6 +35,11 @@ type HtmlInputProps = Omit<
   keyof RadioProps
 >;
 
+/**
+ * The radio component is generated with an automatic unique id, and can be connected to other with the "name" prop.
+ *
+ * Will display as a skeleton when inside an active skeleton context.
+ */
 export const Radio: React.FC<HtmlInputProps & RadioProps> = ({
   checked,
   className,
