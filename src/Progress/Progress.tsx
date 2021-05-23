@@ -6,9 +6,15 @@ import React from "react";
 import { Component } from "../shared";
 
 export interface ProgressProps extends Component {
+  /**
+   * The current progress. Range from 0 to 100
+   */
   progress?: number;
 }
 
+/**
+ * The progress component can be used to display moving or stationary progress bars
+ */
 export const Progress: React.FC<ProgressProps> = ({
   progress,
   className,

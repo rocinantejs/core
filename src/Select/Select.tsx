@@ -11,17 +11,42 @@ import { InputComponent, inputVariantColorMap } from "../shared";
 import { Skeleton, useSkeletonContext } from "../Skeleton";
 
 export interface SelectItem {
+  /**
+   * The name of the item
+   */
   name: string;
+  /**
+   * The value of the item
+   */
   value: string;
 }
 
 export interface SelectProps extends InputComponent {
+  /**
+   * A list of items to show in the select
+   */
   items: SelectItem[];
+  /**
+   * A placeholder to show
+   */
   placeHolder?: string;
+  /**
+   * The currently selected item
+   */
   selectedItem?: SelectItem;
+  /**
+   * Fires when an item is selected
+   */
   onItemSelected?: (item?: SelectItem) => void;
 }
 
+/**
+ * The select element lets a user pick from a predefined list of values
+ *
+ * Will display as a skeleton when inside an active skeleton context.
+ *
+ * Can show an error state when passed the error prop.
+ */
 export const Select: React.FC<SelectProps> = ({
   items,
   className,

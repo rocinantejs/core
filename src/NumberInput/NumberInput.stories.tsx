@@ -1,13 +1,21 @@
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { NumberInput } from "./NumberInput";
+import { NumberInput, NumberInputProps } from "./NumberInput";
 
 export default {
   title: "Input/NumberInput",
   component: NumberInput,
 } as Meta;
 
-export const Component = (): React.ReactElement => <NumberInput />;
+const Template = ({ ...args }: NumberInputProps): React.ReactElement => (
+  <NumberInput {...args} />
+);
 
-export const Error = (): React.ReactElement => <NumberInput error />;
+export const Default = Template.bind({});
+Default.args = {} as NumberInputProps;
+
+export const Error = Template.bind({});
+Error.args = {
+  error: true,
+} as NumberInputProps;

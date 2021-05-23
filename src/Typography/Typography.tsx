@@ -54,10 +54,20 @@ const variants = {
 };
 
 export interface TypographyProps extends Component {
+  /**
+   * Controls the text size and wieght.
+   * Some variants will also render with a contextual HTML tag
+   */
   variant?: keyof typeof variants;
+  /**
+   * The ID string of the element which is associated with the control
+   */
   htmlFor?: string;
 }
 
+/**
+ * The typeography component should be used when displaying any kind of text.
+ */
 export const Typography: React.FC<TypographyProps> = ({
   variant = "p",
   className,

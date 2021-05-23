@@ -7,6 +7,9 @@ import { Component } from "../shared";
 
 export type PanelProps = Component;
 
+/**
+ * The Card component is a simple component used for styling and layout
+ */
 export const Panel: React.FC<PanelProps> = ({
   className,
   children,

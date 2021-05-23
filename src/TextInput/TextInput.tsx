@@ -6,9 +6,21 @@ import React from "react";
 import { InputComponent, inputVariantColorMap } from "../shared";
 
 export interface TextInputProps extends InputComponent {
+  /**
+   * A placeholder to show
+   */
   placeholder?: string;
+  /**
+   * Current value of the text input
+   */
   value?: string;
+  /**
+   * Fired when the value is changed
+   */
   onChange?: (value: string) => void;
+  /**
+   * Sets if the input is a password field
+   */
   password?: boolean;
 }
 
@@ -20,6 +32,9 @@ type HtmlInputProps = Omit<
   keyof TextInputProps
 >;
 
+/**
+ * The text input accepts any input as text
+ */
 export const TextInput: React.FC<HtmlInputProps & TextInputProps> = ({
   placeholder,
   className,

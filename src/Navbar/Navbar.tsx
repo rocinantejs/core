@@ -8,11 +8,23 @@ import { Panel } from "../Panel";
 import { Component } from "../shared";
 
 export interface NavbarProps extends Component {
+  /**
+   * Component to insert into the brand area of the navbar
+   */
   brand: React.ReactNode;
+  /**
+   * Component to insert into the links area of the navbar
+   */
   navLinks?: React.ReactNode;
+  /**
+   * Component to insert into the buttons area of the navbar
+   */
   navButtons?: React.ReactNode[];
 }
 
+/**
+ * The navbar component is a container for nav items
+ */
 export const Navbar: React.FC<NavbarProps> = ({
   className,
   brand,

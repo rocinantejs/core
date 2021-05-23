@@ -2,15 +2,18 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { Card } from "../Card";
-import { Skeleton } from "./Skeleton";
+import { Skeleton, SkeletonProps } from "./Skeleton";
 
 export default {
   title: "Other/Skeleton",
   component: Skeleton,
 } as Meta;
 
-export const Component = (): React.ReactNode => (
+const Template = ({ ...args }: SkeletonProps): React.ReactNode => (
   <Card>
-    <Skeleton height="1rem" width="6rem" />
+    <Skeleton {...args} />
   </Card>
 );
+
+export const Default = Template.bind({});
+Default.args = { height: "1rem", width: "6rem" } as SkeletonProps;

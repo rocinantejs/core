@@ -14,6 +14,7 @@ export interface CheckboxProps extends Component {
    */
   label: string;
   /**
+   * Sets if the checkbox is checked
    * Setting this value will change the mode to controlled
    */
   checked?: boolean;
