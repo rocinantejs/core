@@ -1,6 +1,6 @@
 {
   "name": "@rocinante/core",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -84,6 +84,7 @@
     "lodash.uniqueid": "^4.0.1",
     "react-icons": "^4.2.0",
     "react-popper": "^2.2.5",
+    "react-range": "^1.8.9",
     "react-transition-group": "^4.4.1",
     "react-useportal": "^1.0.14"
   }

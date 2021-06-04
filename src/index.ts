@@ -13,3 +13,4 @@ export * from "./Select";
 export * from "./Skeleton";
 export * from "./TextInput";
 export * from "./Typography";
+export * from "./Range";
