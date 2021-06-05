@@ -14,3 +14,4 @@ export * from "./Skeleton";
 export * from "./TextInput";
 export * from "./Typography";
 export * from "./Range";
+export * from "./Menu";
