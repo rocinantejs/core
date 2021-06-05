@@ -46,6 +46,7 @@ jobs:
   npm_publish:
     name: NPM Publish
     runs-on: ubuntu-18.04
+    needs: build
     strategy:
       matrix:
         node-version: [12]
@@ -64,12 +65,27 @@ jobs:
   docs_publish:
     name: Docs Publish
     runs-on: ubuntu-18.04
+    needs: build
     strategy:
       matrix:
         node-version: [12]
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependancies
+        run: |
+          yarn install
 
       - name: Build Docs
         run: |
