@@ -3,7 +3,8 @@ const colors = (theme) => ({
   "dark-0": "#201E20",
   "dark-1": "#2C2D31",
   "dark-2": "#343539",
-  "dark-3": "#767881",
+  "dark-3": "#424246",
+  "dark-4": "#767881"
 });
 
 // tailwind.config.js
@@ -43,6 +44,7 @@ module.exports = {
     transitionProperty: ["hover", "focus"],
     backgroundSize: ["hover", "focus"],
     backgroundPosition: ["hover", "focus", "checked"],
+    backgroundColor: ["hover", "focus", "checked"],
     borderColor: ["hover", "checked", "focus"],
     borderWidth: ["hover", "checked"],
     boxShadow: ["hover", "focus"],
