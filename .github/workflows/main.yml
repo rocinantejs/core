@@ -95,6 +95,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           token: ${{ secrets.DOCS_TOKEN }}
+          repository-name: rocinantejs/docs
           branch: main
           folder: storybook-static
           clean: true
