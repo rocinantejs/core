@@ -41,3 +41,16 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build Docs
+        run: |
+          yarn storybook:export
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          token: ${{ secrets.DOCS_TOKEN }}
+          branch: main
+          folder: storybook-static
+          clean: true
+          target-folder: docs
