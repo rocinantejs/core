@@ -44,9 +44,14 @@ export const Popover: React.FC<PopoverProps> = ({
   visible,
   overlay,
 }) => {
-  const [referenceElement, setReferenceElement] = useState(null);
-  const [popperElement, setPopperElement] = useState(null);
-  const [arrowElement, setArrowElement] = useState(null);
+  const [
+    referenceElement,
+    setReferenceElement,
+  ] = useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  );
+  const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
   const [isVisible, setVisibility] = useState(visible || false);
   const { styles: popperStyles, attributes } = usePopper(
     referenceElement,
