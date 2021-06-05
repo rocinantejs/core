@@ -38,10 +38,35 @@ jobs:
         run: |
           yarn lint
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: build
+
+  npm_publish:
+    name: Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
+
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
+  docs_publish:
+    name: Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
       - name: Build Docs
         run: |
           yarn storybook:export
