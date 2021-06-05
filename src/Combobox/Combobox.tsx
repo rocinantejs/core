@@ -66,14 +66,20 @@ export const Combobox: React.FC<ComboboxProps> = ({
     getItemProps,
   } = useCombobox({
     items,
-    itemToString: (item) => item.name,
+    itemToString: (item) => item?.name || "",
     selectedItem: selectedItemProp,
     onSelectedItemChange: (changes) =>
-      onItemSelected && onItemSelected(changes.selectedItem),
+      onItemSelected && onItemSelected(changes.selectedItem || undefined),
   });
 
-  const [referenceElement, setReferenceElement] = React.useState(null);
-  const [popperElement, setPopperElement] = React.useState(null);
+  const [
+    referenceElement,
+    setReferenceElement,
+  ] = React.useState<HTMLButtonElement | null>(null);
+  const [
+    popperElement,
+    setPopperElement,
+  ] = React.useState<HTMLDivElement | null>(null);
 
   const { styles: popperStyles, attributes } = usePopper(
     referenceElement,

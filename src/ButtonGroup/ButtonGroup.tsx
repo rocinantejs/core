@@ -38,12 +38,14 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   const resolvedSelected = selected !== undefined ? selected : selectedState;
 
   const onButtonClick = (index: number) => {
-    if (selected !== undefined) onSelected(index);
+    if (selected !== undefined && onSelected) onSelected(index);
     else setSelectedState(index);
   };
 
   const getChildComponents = () => {
-    const buttons = Array.isArray(children) ? children : [children];
+    const buttons: ReactElement<ButtonProps>[] = ((Array.isArray(children)
+      ? children
+      : [children]) as unknown) as ReactElement<ButtonProps>[];
 
     return buttons.map((child: ReactElement<ButtonProps>, index: number) => {
       let clazz = "";

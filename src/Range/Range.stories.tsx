@@ -4,7 +4,7 @@ import React from "react";
 import { Range, RangeProps } from "./Range";
 
 export default {
-  title: "Range",
+  title: "Input/Range",
   component: Range,
 } as Meta;
 
