@@ -76,13 +76,13 @@ export const Button = React.forwardRef<
       },
       secondary: {
         base:
-          "rcn-shadow rcn-bg-dark-1 rcn-border-dark-2 rcn-border focus:rcn-shadow-dark",
-        hover: "hover:rcn-bg-dark-0 hover:rcn-border-dark-1",
+          "rcn-shadow rcn-bg-white rcn-bg-opacity-10 rcn-border-dark-3 rcn-border focus:rcn-border-dark-4",
+        hover: "hover:rcn-bg-dark-2 hover:rcn-border-dark-2",
       },
       flat: {
         base:
-          "rcn-border rcn-bg-dark-1 rcn-border-dark-1 focus:rcn-shadow-dark",
-        hover: "hover:rcn-border-dark-2",
+          "rcn-border rcn-bg-dark-1 rcn-border-dark-1 focus:rcn-border-dark-3",
+        hover: "hover:rcn-bg-white hover:rcn-bg-opacity-10",
       },
     };
 
