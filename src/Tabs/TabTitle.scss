@@ -1,0 +1,22 @@
+.rcn-tabtitle-transition-enter {
+  opacity: 0;
+  transform: scale(1, 0);
+  transform: translateY(0.125rem);
+}
+.rcn-tabtitle-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms, transform 200ms;
+}
+.rcn-tabtitle-transition-exit {
+  opacity: 1;
+}
+.rcn-tabtitle-transition-exit-active {
+  opacity: 0;
+  transform: scale(1, 0);
+  transform: translateY(0.125rem);
+  transition: opacity 200ms, transform 200ms;
+}
+.rcn-tabtitle-transition-exit-done {
+  opacity: 0;
+}
