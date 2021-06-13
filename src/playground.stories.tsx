@@ -32,45 +32,47 @@ const items: SelectItem[] = [
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Playground = () => (
   <div className="rcn-bg-dark-0 rcn-p-10 rcn-flex rcn-flex-wrap rcn-max-w-5xl">
-    <Panel className="rcn-flex-1 rcn-mr-10 rcn-mb-10 rcn-space-y-2">
-      <Typography className="font-title rcn-mb-4" variant="h1">
-        Typography
-      </Typography>
-      <Typography variant="h1">Heading 1</Typography>
-      <Typography variant="h2">Heading 2</Typography>
-      <Typography variant="h3">Heading 3</Typography>
-      <Typography variant="h4">Heading 4</Typography>
-      <Typography variant="h5">Heading 5</Typography>
-      <Typography variant="p">Paragraph</Typography>
-      <Typography variant="label">Label</Typography>
-      <Typography variant="small">small</Typography>
-      <Typography variant="extraSmall">extra small</Typography>
-    </Panel>
-    <Card className="rcn-flex-1 rcn-mb-10">
-      <Typography className="font-title rcn-mb-4" variant="h1">
-        Inputs
-      </Typography>
-      <div className="rcn-flex rcn-space-x-8">
-        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
-          <Typography className="font-title" variant="h2">
-            Regular
-          </Typography>
-          <TextInput placeholder="Text Input" />
-          <NumberInput />
-          <Select items={items} placeHolder="Select" />
-          <Combobox items={items} placeHolder="Combobox" />
+    <div className="rcn-flex">
+      <Panel className="rcn-flex-1 rcn-mr-10 rcn-mb-10 rcn-space-y-2">
+        <Typography className="font-title rcn-mb-4" variant="h1">
+          Typography
+        </Typography>
+        <Typography variant="h1">Heading 1</Typography>
+        <Typography variant="h2">Heading 2</Typography>
+        <Typography variant="h3">Heading 3</Typography>
+        <Typography variant="h4">Heading 4</Typography>
+        <Typography variant="h5">Heading 5</Typography>
+        <Typography variant="p">Paragraph</Typography>
+        <Typography variant="label">Label</Typography>
+        <Typography variant="small">small</Typography>
+        <Typography variant="extraSmall">extra small</Typography>
+      </Panel>
+      <Card className="rcn-flex-1 rcn-mb-10">
+        <Typography className="font-title rcn-mb-4" variant="h1">
+          Inputs
+        </Typography>
+        <div className="rcn-flex rcn-space-x-8">
+          <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
+            <Typography className="font-title" variant="h2">
+              Regular
+            </Typography>
+            <TextInput placeholder="Text Input" />
+            <NumberInput />
+            <Select items={items} placeHolder="Select" />
+            <Combobox items={items} placeHolder="Combobox" />
+          </div>
+          <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
+            <Typography className="font-title" variant="h2">
+              Error
+            </Typography>
+            <TextInput error placeholder="Text Input" />
+            <NumberInput error />
+            <Select error items={items} placeHolder="Select" />
+            <Combobox error items={items} placeHolder="Combobox" />
+          </div>
         </div>
-        <div className="rcn-flex-1 rcn-flex rcn-flex-col rcn-space-y-4">
-          <Typography className="font-title" variant="h2">
-            Error
-          </Typography>
-          <TextInput error placeholder="Text Input" />
-          <NumberInput error />
-          <Select error items={items} placeHolder="Select" />
-          <Combobox error items={items} placeHolder="Combobox" />
-        </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
     <Panel className="rcn-flex-1 rcn-mr-10 rcn-space-y-2">
       <Typography className="font-title rcn-mb-4" variant="h1">
         Buttons

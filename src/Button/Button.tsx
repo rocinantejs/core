@@ -13,6 +13,10 @@ export interface ButtonProps extends Component {
    */
   variant?: "primary" | "secondary" | "flat" | "danger";
   /**
+   * The size of the button
+   */
+  size?: "normal" | "small";
+  /**
    * Toggles the disabled state
    */
   disabled?: boolean;
@@ -50,6 +54,7 @@ export const Button = React.forwardRef<
       children,
       className,
       variant = "primary",
+      size = "normal",
       disabled = false,
       loading = false,
       submit = false,
@@ -59,7 +64,7 @@ export const Button = React.forwardRef<
   ) => {
     const { showSkeleton } = useSkeletonContext();
     const baseStyles =
-      "rcn-px-4 rcn-py-1 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-flex rcn-items-center rcn-relative rcn-outline-none focus:rcn-outline-none";
+      "rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-flex rcn-items-center rcn-relative rcn-outline-none focus:rcn-outline-none";
 
     const variantStyles: {
       [key in typeof variant]: { base: string; hover: string };
@@ -105,6 +110,7 @@ export const Button = React.forwardRef<
           variantStyles[variant].base,
           !disabled && !loading && variantStyles[variant].hover,
           (disabled || loading) && "rcn-opacity-75 rcn-cursor-not-allowed",
+          size === "normal" ? "rcn-px-4 rcn-py-1" : "rcn-px-2",
           className
         )}
         type={submit ? "submit" : "button"}
@@ -121,6 +127,7 @@ export const Button = React.forwardRef<
         <span
           className={classNames(
             "rcn-flex rcn-w-full rcn-justify-center rcn-items-center",
+            size === "normal" ? "rcn-text-base" : "rcn-text-sm",
             loading && "rcn-invisible"
           )}
         >

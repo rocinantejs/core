@@ -28,6 +28,9 @@ Flat.args = { variant: "flat" } as ButtonProps;
 export const Danger = Template.bind({});
 Danger.args = { variant: "danger" } as ButtonProps;
 
+export const Small = Template.bind({});
+Small.args = { size: "small" } as ButtonProps;
+
 const SkeletonStory = ({ ...args }: ButtonProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
     <Button {...args}>Click me!</Button>

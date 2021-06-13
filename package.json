@@ -1,6 +1,6 @@
 {
   "name": "@rocinante/core",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "license": "MIT",
   "main": "build/index.js",
   "module": "build/index.esm.js",
