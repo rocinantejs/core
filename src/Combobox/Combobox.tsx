@@ -130,7 +130,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
       >
         <input
           {...getInputProps()}
-          className="rcn-bg-transparent rcn-flex-1 rcn-outline-none"
+          className="rcn-bg-transparent rcn-flex-1 rcn-outline-none rcn-w-full"
           placeholder={placeHolder}
         />
         <MdChevronRight

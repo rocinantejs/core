@@ -47,7 +47,7 @@ export const TextInput: React.FC<HtmlInputProps & TextInputProps> = ({
 }) => (
   <input
     className={classNames(
-      "rcn-flex rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-border rcn-transition-all rcn-outline-none",
+      "rcn-flex rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-border rcn-transition-all rcn-outline-none rcn-w-full",
       inputVariantColorMap[variant],
       error
         ? "rcn-shadow-red rcn-border-red-500"

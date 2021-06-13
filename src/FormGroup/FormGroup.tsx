@@ -25,20 +25,26 @@ export const FormGroup: React.FC<FormGroupProps> = ({
   <div
     className={classNames(
       className,
-      inline && "rcn-flex rcn-flex-wrap rcn-items-center"
+      inline && "rcn-flex rcn-flex-wrap rcn-items-center rcn-mb-2 last:rcn-mb-1"
     )}
     {...props}
   >
     <Typography
       variant="label"
-      className={classNames("rcn-text-white rcn-mr-1")}
+      className={classNames(
+        "rcn-text-white rcn-mr-2 rcn-inline-block",
+        !inline && "rcn-mb-1"
+      )}
     >
       {label}{" "}
       {labelInfo && <span className="rcn-text-dark-4">{labelInfo}</span>}
     </Typography>
-    <span className="rcn-flex-1">{children}</span>
+    <div className="rcn-flex-1">{children}</div>
     {helperText && (
-      <Typography variant="small" className="rcn-text-dark-4 rcn-flex-full">
+      <Typography
+        variant="small"
+        className="rcn-text-dark-4 rcn-flex-full rcn-mt-1"
+      >
         {helperText}
       </Typography>
     )}

@@ -81,7 +81,7 @@ export const NumberInput: React.FC<HtmlInputProps & NumberInputProps> = ({
     <span className="rcn-flex">
       <input
         className={classNames(
-          "rcn-flex-1 rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded-l rcn-text-white rcn-border rcn-transition-all rcn-outline-none",
+          "rcn-flex-1 rcn-px-4 rcn-py-1 rcn-h-9 rcn-rounded-l rcn-text-white rcn-border rcn-transition-all rcn-outline-none rcn-w-full",
           inputVariantColorMap[variant],
           error
             ? "rcn-shadow-red rcn-border-red-500"

@@ -53,6 +53,10 @@ module.exports = {
     borderWidth: ["hover", "checked"],
     boxShadow: ["hover", "focus"],
     inset: ["checked"],
+    extend: {
+      margin: ["last", "first"],
+      padding: ["last", "first"]
+    }
   },
   plugins: [],
 };
