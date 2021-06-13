@@ -12,8 +12,12 @@ export default {
 
 const Template = ({ ...args }: TabsProps): React.ReactElement => (
   <Tabs {...args}>
-    <Tab label="Tab One">Tab One Content</Tab>
-    <Tab label="Tab Two">Tab Two Content</Tab>
+    <Tab name="Tab One" label="Tab One">
+      Tab One Content
+    </Tab>
+    <Tab name="Tab Two" label="Tab Two">
+      Tab Two Content
+    </Tab>
   </Tabs>
 );
 
@@ -24,3 +28,6 @@ export const Vertical = Template.bind({});
 Vertical.args = {
   direction: "vertical",
 } as TabsProps;
+
+export const WithTooltips = Template.bind({});
+WithTooltips.args = { showTooltip: true } as TabsProps;

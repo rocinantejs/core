@@ -111,6 +111,10 @@ export const Popover: React.FC<PopoverProps> = ({
     }
   }, [isVisible, handleKeyDown]);
 
+  React.useEffect(() => {
+    setVisibility(!!visible);
+  }, [visible, setVisibility]);
+
   const controlled = visible !== undefined;
 
   return (

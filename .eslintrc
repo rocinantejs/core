@@ -43,6 +43,7 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
     "react/no-unused-prop-types": "off",
     "react/require-default-props": "off",
     "react/prop-types": "off",
@@ -63,13 +64,5 @@
         "endOfLine": "auto"
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.stories.tsx"
-        ]
-      }
-    ]
   }
 }

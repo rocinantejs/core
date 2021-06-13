@@ -6,7 +6,8 @@ import React from "react";
 import { Component } from "../shared";
 
 export interface TabProps extends Component {
-  label: string;
+  name: string;
+  label: string | React.ReactElement;
 }
 
 export const Tab: React.FC<TabProps> = ({ className, children, ...props }) => (

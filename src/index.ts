@@ -16,4 +16,5 @@ export * from "./Select";
 export * from "./Skeleton";
 export * from "./Tabs";
 export * from "./TextInput";
+export * from "./Tooltip";
 export * from "./Typography";

@@ -10,6 +10,7 @@ import { Direction } from "./types";
 
 export interface TabsProps extends Component {
   direction?: Direction;
+  showTooltip?: boolean;
   children: React.ReactElement<TabProps>[];
 }
 
@@ -17,6 +18,7 @@ export const Tabs: React.FC<TabsProps> = ({
   direction = "horizontal",
   className,
   children,
+  showTooltip = false,
   ...props
 }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -39,13 +41,16 @@ export const Tabs: React.FC<TabsProps> = ({
       >
         {children.map((item, index) => (
           <TabTitle
-            key={item.props.label}
+            key={item.props.name}
             direction={direction}
-            label={item.props.label}
+            name={item.props.name}
             index={index}
             selectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
-          />
+            showTooltip={showTooltip}
+          >
+            {item.props.label}
+          </TabTitle>
         ))}
       </ul>
       {children[selectedTab]}
