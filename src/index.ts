@@ -4,6 +4,7 @@ export * from "./Card";
 export * from "./Checkbox";
 export * from "./ColorInput";
 export * from "./Combobox";
+export * from "./FormGroup";
 export * from "./Loading";
 export * from "./Menu";
 export * from "./Navbar";

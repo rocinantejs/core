@@ -38,6 +38,9 @@ module.exports = {
         width: "width",
         height: "height",
       },
+      flex: {
+        full: "1 1 100%"
+      }
     },
   },
   variants: {
