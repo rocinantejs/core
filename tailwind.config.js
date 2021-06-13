@@ -14,6 +14,7 @@ module.exports = {
   prefix: "rcn-",
   theme: {
     backgroundColor: colors,
+    textColor: colors,
     borderColor: colors,
     extend: {
       backgroundSize: {

@@ -1,0 +1,32 @@
+.sketch-picker {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.sketch-picker label {
+  color: white !important;
+}
+
+.sketch-picker input {
+  color: white !important;
+  background-color: rgb(44, 45, 49);
+  border: 1px solid !important;
+  border-color: rgb(52, 53, 57) !important;
+  box-shadow: none !important;
+  border-radius: 0.25rem !important;
+  width: 100% !important;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  text-align: center;
+}
+
+.sketch-picker input:focus {
+  border-color: rgb(59, 130, 246) !important;
+  outline: none;
+}
+
+.sketch-picker .flexbox-fix {
+  border-top: none !important;
+}

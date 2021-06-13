@@ -3,7 +3,7 @@ import "../tailwind.scss";
 import "./Popover.scss";
 
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { PopperProps, usePopper } from "react-popper";
 import { CSSTransition } from "react-transition-group";
 import usePortal from "react-useportal";
@@ -29,6 +29,10 @@ export interface PopoverProps extends Component {
    * Should show overlay
    */
   overlay?: boolean;
+  /**
+   * If the target of the popover should be interactable when the overlay is enabled
+   */
+  targetInteractable?: boolean;
 }
 
 /**
@@ -43,6 +47,7 @@ export const Popover: React.FC<PopoverProps> = ({
   arrowClassName,
   visible,
   overlay,
+  targetInteractable,
 }) => {
   const [
     referenceElement,
@@ -78,19 +83,21 @@ export const Popover: React.FC<PopoverProps> = ({
   const refEl = childrenArr[0];
   const portalEl = childrenArr[1];
 
-  const handleRefClick = () => {
-    setVisibility(!isVisible);
-  };
+  const handleRefClick = useCallback(() => {
+    if (isVisible && !targetInteractable) setVisibility(false);
+    else if (!isVisible) setVisibility(true);
+  }, [isVisible, targetInteractable]);
 
-  const handleClickOverlay = (
-    event:
-      | React.MouseEvent<HTMLDivElement>
-      | React.KeyboardEvent<HTMLDivElement>
-  ) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setVisibility(!isVisible);
-  };
+  const handleClickOverlay = useCallback<
+    React.MouseEventHandler<HTMLDivElement>
+  >(
+    (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setVisibility(!isVisible);
+    },
+    [isVisible, setVisibility]
+  );
 
   const handleKeyDown = React.useCallback(
     (event) => {
@@ -122,6 +129,7 @@ export const Popover: React.FC<PopoverProps> = ({
       {React.cloneElement(refEl as React.ReactElement, {
         ref: setReferenceElement,
         onClick: !controlled ? handleRefClick : undefined,
+        style: { position: "relative", zIndex: isVisible ? 1000 : "unset" },
       })}
       <Portal>
         {overlay && isVisible && (
@@ -129,7 +137,7 @@ export const Popover: React.FC<PopoverProps> = ({
           <div
             role="dialog"
             onClick={handleClickOverlay}
-            onKeyDown={handleClickOverlay}
+            onKeyDown={handleKeyDown}
             className="rcn-fixed rcn-top-0 rcn-right-0 rcn-left-0 rcn-bottom-0"
           />
         )}

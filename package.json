@@ -1,6 +1,6 @@
 {
   "name": "@rocinante/core",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "license": "MIT",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -39,6 +39,7 @@
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.uniqueid": "^4.0.6",
     "@types/react": "^17.0.3",
+    "@types/react-color": "^3.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/react-transition-group": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
@@ -71,6 +72,7 @@
     "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
     "react": "^16.13.1",
+    "react-color": "^2.19.3",
     "react-dom": "^16.13.1",
     "react-icons": "^4.2.0",
     "react-popper": "^2.2.5",

@@ -4,7 +4,7 @@ import React from "react";
 import { Tooltip, TooltipProps } from "./Tooltip";
 
 export default {
-  title: "Tooltip",
+  title: "Other/Tooltip",
   component: Tooltip,
 } as Meta;
 
