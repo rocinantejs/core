@@ -19,10 +19,10 @@ export default {
 
 const DefaultStory = ({ ...args }: ButtonGroupProps): React.ReactNode => (
   <ButtonGroup {...args}>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-    <Button>Four</Button>
+    <Button name="one">One</Button>
+    <Button name="two">Two</Button>
+    <Button name="three">Three</Button>
+    <Button name="four">Four</Button>
   </ButtonGroup>
 );
 

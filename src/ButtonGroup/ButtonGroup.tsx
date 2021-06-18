@@ -1,24 +1,26 @@
 import "../tailwind.scss";
 
 import classNames from "classnames";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useCallback, useMemo, useState } from "react";
 
 import { ButtonProps } from "../Button/Button";
 import { Component } from "../shared";
 
+type NamedButtonProps = ButtonProps & { name: string };
+
 export interface ButtonGroupProps extends Component {
   /**
-   * One or more buttons to include in the button bar
+   * One or more buttons to include in the button bar. Each button must have a {name} prop.
    */
-  children: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
+  children: ReactElement<NamedButtonProps> | ReactElement<NamedButtonProps>[];
   /**
-   * The selected button index
+   * The selected button
    */
-  selected?: number;
+  selected?: string;
   /**
    * Fired when a button is selected
    */
-  onSelected?: (index: number) => void;
+  onSelected?: (name: string) => void;
 }
 
 /**
@@ -33,43 +35,57 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   onSelected,
   ...props
 }) => {
-  const [selectedState, setSelectedState] = useState(0);
+  const [selectedState, setSelectedState] = useState<string | undefined>(
+    selected
+  );
 
-  const resolvedSelected = selected !== undefined ? selected : selectedState;
+  const resolvedSelected = useMemo(
+    () => (selected !== undefined ? selected : selectedState),
+    [selected, selectedState]
+  );
 
-  const onButtonClick = (index: number) => {
-    if (selected !== undefined && onSelected) onSelected(index);
-    else setSelectedState(index);
-  };
+  const onButtonClick = useCallback(
+    (name: string) => {
+      if (selected !== undefined && onSelected) onSelected(name);
+      else setSelectedState(name);
+    },
+    [onSelected, selected]
+  );
 
-  const getChildComponents = () => {
-    const buttons: ReactElement<ButtonProps>[] = ((Array.isArray(children)
+  const childComponents = useMemo(() => {
+    const buttons: ReactElement<NamedButtonProps>[] = ((Array.isArray(children)
       ? children
-      : [children]) as unknown) as ReactElement<ButtonProps>[];
+      : [children]) as unknown) as ReactElement<NamedButtonProps>[];
 
-    return buttons.map((child: ReactElement<ButtonProps>, index: number) => {
-      let clazz = "";
-      if (index === 0) clazz = "rcn-rounded-r-none";
-      else if (index === buttons.length - 1) clazz = "rcn-rounded-l-none";
-      else clazz = "rcn-rounded-l-none rcn-rounded-r-none";
+    return buttons.map(
+      (child: ReactElement<NamedButtonProps>, index: number) => {
+        const primary = resolvedSelected
+          ? child.props.name === resolvedSelected
+          : index === 0;
 
-      const childClassNames = classNames(
-        child.props.className,
-        "rcn-flex-1",
-        clazz
-      );
+        let clazz = "";
+        if (index === 0) clazz = "rcn-rounded-r-none";
+        else if (index === buttons.length - 1) clazz = "rcn-rounded-l-none";
+        else clazz = "rcn-rounded-l-none rcn-rounded-r-none";
 
-      return React.cloneElement(child, {
-        className: childClassNames,
-        variant: index === resolvedSelected ? "primary" : "secondary",
-        onClick: () => onButtonClick(index),
-      });
-    });
-  };
+        const childClassNames = classNames(
+          child.props.className,
+          "rcn-flex-1",
+          clazz
+        );
+
+        return React.cloneElement(child, {
+          className: childClassNames,
+          variant: primary ? "primary" : "secondary",
+          onClick: () => onButtonClick(child.props.name),
+        });
+      }
+    );
+  }, [children, onButtonClick, resolvedSelected]);
 
   return (
     <div className={classNames("rcn-flex", className)} {...props}>
-      {getChildComponents()}
+      {childComponents}
     </div>
   );
 };
