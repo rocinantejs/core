@@ -3,7 +3,7 @@ import "../tailwind.scss";
 
 import classNames from "classnames";
 import { useCombobox } from "downshift";
-import React from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
@@ -38,6 +38,21 @@ export interface ComboboxProps extends InputComponent {
    * Fires when an item is selected
    */
   onItemSelected?: (item?: ComboboxItem) => void;
+  /**
+   * Extra props to pass to the input component
+   */
+  inputProps?: React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >;
+  /**
+   * Controls if the user is allowed to enter a new value
+   */
+  allowNewValue?: boolean;
+  /**
+   * Controls if the items are filtered by input
+   */
+  filter?: boolean;
 }
 
 /**
@@ -55,8 +70,30 @@ export const Combobox: React.FC<ComboboxProps> = ({
   placeHolder,
   variant = "dark",
   error,
+  allowNewValue = false,
+  inputProps,
+  filter = true,
   ...props
 }) => {
+  const [itemFilter, setItemFilter] = useState<string | undefined>();
+  const filteredItems = useMemo(() => {
+    const newItems = filter
+      ? items.filter((i) =>
+          i.name.toLowerCase().includes(itemFilter?.toLowerCase() || "")
+        )
+      : [...items];
+
+    if (
+      allowNewValue &&
+      itemFilter &&
+      items.every((i) => i.name !== itemFilter)
+    ) {
+      newItems.unshift({ name: itemFilter, value: itemFilter });
+    }
+
+    return newItems;
+  }, [items, itemFilter, allowNewValue, filter]);
+
   const {
     isOpen,
     getToggleButtonProps,
@@ -64,12 +101,16 @@ export const Combobox: React.FC<ComboboxProps> = ({
     getInputProps,
     getComboboxProps,
     getItemProps,
+    selectItem,
+    selectedItem,
+    highlightedIndex,
   } = useCombobox({
-    items,
+    items: filteredItems,
+    initialSelectedItem: selectedItemProp,
     itemToString: (item) => item?.name || "",
-    selectedItem: selectedItemProp,
     onSelectedItemChange: (changes) =>
       onItemSelected && onItemSelected(changes.selectedItem || undefined),
+    onInputValueChange: ({ inputValue }) => setItemFilter(inputValue),
   });
 
   const [
@@ -87,6 +128,17 @@ export const Combobox: React.FC<ComboboxProps> = ({
     {
       placement: "bottom-start",
     }
+  );
+
+  const onInputKeyDown = useCallback<
+    React.KeyboardEventHandler<HTMLInputElement>
+  >(
+    (e) => {
+      if (e.key === "Enter" && allowNewValue && itemFilter) {
+        selectItem({ name: itemFilter, value: itemFilter });
+      }
+    },
+    [allowNewValue, itemFilter, selectItem]
   );
 
   const { showSkeleton } = useSkeletonContext();
@@ -129,9 +181,15 @@ export const Combobox: React.FC<ComboboxProps> = ({
         {...props}
       >
         <input
+          {...inputProps}
           {...getInputProps()}
           className="rcn-bg-transparent rcn-flex-1 rcn-outline-none rcn-w-full"
           placeholder={placeHolder}
+          autoComplete="off"
+          onKeyDown={(e) => {
+            onInputKeyDown(e);
+            if (inputProps && inputProps.onKeyDown) inputProps?.onKeyDown(e);
+          }}
         />
         <MdChevronRight
           className={classNames(
@@ -157,9 +215,13 @@ export const Combobox: React.FC<ComboboxProps> = ({
           )}
         >
           {isOpen &&
-            items.map((item, index) => (
+            filteredItems.map((item, index) => (
               <li
-                className="rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out  rcn-min-w-full hover:rcn-bg-dark-3"
+                className={classNames(
+                  "rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out  rcn-min-w-full",
+                  item.value === selectedItem?.value && "rcn-bg-dark-2",
+                  highlightedIndex === index && "rcn-bg-dark-3"
+                )}
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}

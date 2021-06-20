@@ -38,6 +38,10 @@ export interface SelectProps extends InputComponent {
    * Fires when an item is selected
    */
   onItemSelected?: (item?: SelectItem) => void;
+  /**
+   * Controls if the items are filtered by input
+   */
+  filter?: boolean;
 }
 
 /**
@@ -63,10 +67,10 @@ export const Select: React.FC<SelectProps> = ({
     getToggleButtonProps,
     getMenuProps,
     getItemProps,
+    highlightedIndex,
   } = useSelect({
     items,
-    itemToString: (item) => item?.name || "",
-    selectedItem: selectedItemProp,
+    initialSelectedItem: selectedItemProp,
     onSelectedItemChange: (changes) =>
       onItemSelected && onItemSelected(changes.selectedItem || undefined),
   });
@@ -117,6 +121,7 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <button
       type="button"
+      {...props}
       {...getToggleButtonProps({ ref: setReferenceElement })}
       className={classNames(
         "rcn-flex rcn-px-4 rcn-pr-1 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
@@ -124,7 +129,6 @@ export const Select: React.FC<SelectProps> = ({
         stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
         className
       )}
-      {...props}
     >
       <div
         className={classNames(
@@ -159,7 +163,11 @@ export const Select: React.FC<SelectProps> = ({
           {isOpen &&
             items.map((item, index) => (
               <li
-                className="rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out rcn-min-w-full hover:rcn-bg-dark-3 rcn-text-justify"
+                className={classNames(
+                  "rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out  rcn-min-w-full",
+                  item.value === selectedItem?.value && "rcn-bg-dark-2",
+                  highlightedIndex === index && "rcn-bg-dark-3"
+                )}
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}

@@ -7,6 +7,9 @@ import { Combobox, ComboboxItem, ComboboxProps } from "./Combobox";
 export default {
   title: "Input/Combobox",
   component: Combobox,
+  argTypes: {
+    onItemSelected: { action: "selected" },
+  },
 } as Meta;
 
 const items: ComboboxItem[] = [
@@ -25,6 +28,13 @@ export const Default = Template.bind({});
 Default.args = {
   items,
   placeHolder: "Select...",
+} as ComboboxProps;
+
+export const CustomValue = Template.bind({});
+CustomValue.args = {
+  items,
+  placeHolder: "Select...",
+  allowNewValue: true,
 } as ComboboxProps;
 
 export const Error = Template.bind({});
