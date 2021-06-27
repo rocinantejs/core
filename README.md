@@ -21,7 +21,7 @@ Simply install using npm or yarn
 
 Import CSS into your application root
 
-```import "@rocinante/core/rocinante.css"```
+```import "@rocinante/core/dist/css/rocinante.css"```
 
 Get coding!
 

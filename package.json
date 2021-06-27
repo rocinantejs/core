@@ -1,13 +1,13 @@
 {
   "name": "@rocinante/core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
-  "main": "build/index.js",
-  "module": "build/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "build"
+    "dist"
   ],
-  "types": "build/index.d.ts",
+  "types": "dist/index.d.ts",
   "description": "A simple and modern UI library with big guns",
   "repository": "https://github.com/rocinantejs/core",
   "scripts": {
