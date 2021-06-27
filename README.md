@@ -11,7 +11,7 @@ Named after the best ship in the galaxy (and beyond the ring), Rocinante is a sm
 
 View Rocinante's living documentation [here](https://rocinantejs.github.io/docs/?path=/docs/rocinante--playground)
 
-## Installation and Usage
+## Installation and Usage 🛠
 
 Simply install using npm or yarn
 
@@ -19,7 +19,11 @@ Simply install using npm or yarn
 
 ```npm add @rocinante/core```
 
-As Rocinante is fully bundled, including all CSS, all you need to do is import and start using components!
+Import CSS into your application root
+
+```import "@rocinante/core/rocinante.css"```
+
+Get coding!
 
 ```tsx
 import { Button } from "@rocinante/core"
@@ -27,10 +31,10 @@ import { Button } from "@rocinante/core"
 <Button>Click me!</Button>
 ```
 
-## Screenshots
+## Screenshots 📷
 
 ![Library Image](assets/playground.PNG)
 
-## Special Thanks
+## Special Thanks ❤
 
 Inspired by Herman Hubanov's [Amaive dashboard concept](https://dribbble.com/shots/5668358-Dashboard-Template-Amaive)

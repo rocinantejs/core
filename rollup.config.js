@@ -34,6 +34,8 @@ export default {
         tailwindcss(),
         autoprefixer(),
       ],
+      extract: true,
+      extract: 'rocinante.css'
     }),
     resolve(),
     commonjs(),
