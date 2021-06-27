@@ -3,7 +3,7 @@ import "../tailwind.scss";
 
 import classNames from "classnames";
 import { useCombobox } from "downshift";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
@@ -129,6 +129,10 @@ export const Combobox: React.FC<ComboboxProps> = ({
       onItemSelected && onItemSelected(changes.selectedItem || undefined),
     onInputValueChange: ({ inputValue }) => setItemFilter(inputValue),
   });
+
+  useEffect(() => {
+    selectItem(selectedItemProp || null);
+  }, [selectedItemProp, selectItem]);
 
   const [
     referenceElement,

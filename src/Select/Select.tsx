@@ -3,7 +3,7 @@ import "../tailwind.scss";
 
 import classNames from "classnames";
 import { useSelect } from "downshift";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
@@ -81,12 +81,17 @@ export const Select: React.FC<SelectProps> = ({
     getMenuProps,
     getItemProps,
     highlightedIndex,
+    selectItem,
   } = useSelect({
     items: internalItems,
     initialSelectedItem: selectedItemProp,
     onSelectedItemChange: (changes) =>
       onItemSelected && onItemSelected(changes.selectedItem || undefined),
   });
+
+  useEffect(() => {
+    selectItem(selectedItemProp || null);
+  }, [selectedItemProp, selectItem]);
 
   const [
     referenceElement,
