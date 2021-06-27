@@ -53,6 +53,10 @@ export interface ComboboxProps extends InputComponent {
    * Controls if the items are filtered by input
    */
   filter?: boolean;
+  /**
+   * Shows and allows the selection of an empty value
+   */
+  showEmptyItem?: boolean;
 }
 
 /**
@@ -73,6 +77,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   allowNewValue = false,
   inputProps,
   filter = true,
+  showEmptyItem,
   ...props
 }) => {
   const [itemFilter, setItemFilter] = useState<string | undefined>();
@@ -94,6 +99,13 @@ export const Combobox: React.FC<ComboboxProps> = ({
     return newItems;
   }, [items, itemFilter, allowNewValue, filter]);
 
+  const internalItems = useMemo<(ComboboxItem | null)[]>(() => {
+    if (showEmptyItem) {
+      return [null, ...filteredItems];
+    }
+    return filteredItems;
+  }, [showEmptyItem, filteredItems]);
+
   const {
     isOpen,
     getToggleButtonProps,
@@ -105,7 +117,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
     selectedItem,
     highlightedIndex,
   } = useCombobox({
-    items: filteredItems,
+    items: internalItems,
     initialSelectedItem: selectedItemProp,
     itemToString: (item) => item?.name || "",
     onSelectedItemChange: (changes) =>
@@ -193,7 +205,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
         />
         <MdChevronRight
           className={classNames(
-            "rcn-self-center  rcn-mx-1 rcn-transition-all rcn-ease-in-out",
+            "rcn-self-center rcn-mx-1 rcn-transition-all rcn-ease-in-out",
             isOpen && "rcn-transform rcn-rotate-90"
           )}
         />
@@ -215,18 +227,22 @@ export const Combobox: React.FC<ComboboxProps> = ({
           )}
         >
           {isOpen &&
-            filteredItems.map((item, index) => (
+            internalItems.map((item, index) => (
               <li
                 className={classNames(
                   "rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out  rcn-min-w-full",
-                  item.value === selectedItem?.value && "rcn-bg-dark-2",
+                  item?.value === selectedItem?.value && "rcn-bg-dark-2",
                   highlightedIndex === index && "rcn-bg-dark-3"
                 )}
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}
               >
-                {item.name}
+                {item?.name || (
+                  <div className="rcn-text-dark-4 rcn-italic">
+                    Select an option...
+                  </div>
+                )}
               </li>
             ))}
         </ul>

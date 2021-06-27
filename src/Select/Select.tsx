@@ -3,7 +3,7 @@ import "../tailwind.scss";
 
 import classNames from "classnames";
 import { useSelect } from "downshift";
-import React from "react";
+import React, { useMemo } from "react";
 import { MdChevronRight } from "react-icons/md";
 import { usePopper } from "react-popper";
 
@@ -39,9 +39,9 @@ export interface SelectProps extends InputComponent {
    */
   onItemSelected?: (item?: SelectItem) => void;
   /**
-   * Controls if the items are filtered by input
+   * Shows and allows the selection of an empty value
    */
-  filter?: boolean;
+  showEmptyItem?: boolean;
 }
 
 /**
@@ -59,8 +59,16 @@ export const Select: React.FC<SelectProps> = ({
   placeHolder,
   variant = "dark",
   error,
+  showEmptyItem,
   ...props
 }) => {
+  const internalItems = useMemo<(SelectItem | null)[]>(() => {
+    if (showEmptyItem) {
+      return [null, ...items];
+    }
+    return items;
+  }, [showEmptyItem, items]);
+
   const {
     isOpen,
     selectedItem,
@@ -69,7 +77,7 @@ export const Select: React.FC<SelectProps> = ({
     getItemProps,
     highlightedIndex,
   } = useSelect({
-    items,
+    items: internalItems,
     initialSelectedItem: selectedItemProp,
     onSelectedItemChange: (changes) =>
       onItemSelected && onItemSelected(changes.selectedItem || undefined),
@@ -119,31 +127,33 @@ export const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <button
-      type="button"
-      {...props}
-      {...getToggleButtonProps({ ref: setReferenceElement })}
-      className={classNames(
-        "rcn-flex rcn-px-4 rcn-pr-1 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
-        inputVariantColorMap[variant],
-        stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
-        className
-      )}
-    >
-      <div
+    <div className="rcn-flex rcn-outline-none">
+      <button
+        type="button"
+        {...props}
+        {...getToggleButtonProps({ ref: setReferenceElement })}
         className={classNames(
-          "rcn-flex-1 rcn-text-justify rcn-outline-none",
-          !selectedItem && "rcn-text-gray-400"
+          "rcn-flex rcn-flex-1  rcn-px-4 rcn-pr-1 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
+          inputVariantColorMap[variant],
+          stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
+          className
         )}
       >
-        {selectedItem?.name || placeHolder || "Select..."}
-      </div>
-      <MdChevronRight
-        className={classNames(
-          "rcn-self-center  rcn-mx-1 rcn-transition-all rcn-ease-in-out",
-          isOpen && "rcn-transform rcn-rotate-90"
-        )}
-      />
+        <div
+          className={classNames(
+            "rcn-flex-1 rcn-text-justify rcn-outline-none",
+            !selectedItem && "rcn-text-gray-400"
+          )}
+        >
+          {selectedItem?.name || placeHolder || "Select..."}
+        </div>
+        <MdChevronRight
+          className={classNames(
+            "rcn-self-center rcn-mx-1 rcn-transition-all rcn-ease-in-out",
+            isOpen && "rcn-transform rcn-rotate-90"
+          )}
+        />
+      </button>
       <div
         ref={setPopperElement}
         style={{
@@ -161,22 +171,26 @@ export const Select: React.FC<SelectProps> = ({
           )}
         >
           {isOpen &&
-            items.map((item, index) => (
+            internalItems.map((item: SelectItem | null, index: number) => (
               <li
                 className={classNames(
-                  "rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out  rcn-min-w-full",
-                  item.value === selectedItem?.value && "rcn-bg-dark-2",
+                  "rcn-px-4 rcn-p-1 rcn-transition-all rcn-ease-in-out rcn-min-w-full rcn-text-left",
+                  item?.value === selectedItem?.value && "rcn-bg-dark-2",
                   highlightedIndex === index && "rcn-bg-dark-3"
                 )}
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${item}${index}`}
                 {...getItemProps({ item, index })}
               >
-                {item.name}
+                {item?.name || (
+                  <div className="rcn-text-dark-4 rcn-italic">
+                    Select an option...
+                  </div>
+                )}
               </li>
             ))}
         </ul>
       </div>
-    </button>
+    </div>
   );
 };

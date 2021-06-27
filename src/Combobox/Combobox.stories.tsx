@@ -30,6 +30,13 @@ Default.args = {
   placeHolder: "Select...",
 } as ComboboxProps;
 
+export const ShowEmptyItem = Template.bind({});
+ShowEmptyItem.args = {
+  items,
+  placeHolder: "Select...",
+  showEmptyItem: true,
+} as ComboboxProps;
+
 export const CustomValue = Template.bind({});
 CustomValue.args = {
   items,

@@ -27,6 +27,13 @@ Default.args = {
   placeHolder: "Select...",
 } as SelectProps;
 
+export const ShowEmptyItem = Template.bind({});
+ShowEmptyItem.args = {
+  items,
+  placeHolder: "Select...",
+  showEmptyItem: true,
+} as SelectProps;
+
 export const Error = Template.bind({});
 Error.args = {
   items,
