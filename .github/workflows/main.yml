@@ -41,7 +41,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-artifact
-          path: build
+          path: dist
 
   npm_publish:
     name: NPM Publish
@@ -71,7 +71,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-artifact
-          path: build
+          path: dist
 
       - uses: JS-DevTools/npm-publish@v1
         with:
