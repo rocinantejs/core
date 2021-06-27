@@ -41,6 +41,13 @@ Error.args = {
   error: true,
 } as SelectProps;
 
+export const Small = Template.bind({});
+Small.args = {
+  items,
+  placeHolder: "Select...",
+  size: "small",
+} as SelectProps;
+
 const SkeletonStory = ({ ...args }: SelectProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
     <Select {...args} />

@@ -51,6 +51,13 @@ Error.args = {
   error: true,
 } as ComboboxProps;
 
+export const Small = Template.bind({});
+Small.args = {
+  items,
+  placeHolder: "Select...",
+  size: "small",
+} as ComboboxProps;
+
 const SkeletonStory = ({ ...args }: ComboboxProps): React.ReactNode => (
   <SkeletonContext.Provider value={{ showSkeleton: true }}>
     <Combobox {...args} />

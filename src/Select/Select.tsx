@@ -42,6 +42,10 @@ export interface SelectProps extends InputComponent {
    * Shows and allows the selection of an empty value
    */
   showEmptyItem?: boolean;
+  /**
+   * The size of the button
+   */
+  size?: "normal" | "small";
 }
 
 /**
@@ -58,6 +62,7 @@ export const Select: React.FC<SelectProps> = ({
   onItemSelected,
   placeHolder,
   variant = "dark",
+  size = "normal",
   error,
   showEmptyItem,
   ...props
@@ -133,9 +138,12 @@ export const Select: React.FC<SelectProps> = ({
         {...props}
         {...getToggleButtonProps({ ref: setReferenceElement })}
         className={classNames(
-          "rcn-flex rcn-flex-1  rcn-px-4 rcn-pr-1 rcn-py-1 rcn-h-9 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
+          "rcn-flex rcn-flex-1 rcn-pr-1 rcn-rounded rcn-text-white rcn-transition-all rcn-ease-in-out rcn-border hover:rcn-bg-opacity-50 rcn-outline-none focus:rcn-outline-none",
           inputVariantColorMap[variant],
           stateMap[error ? "error" : "default"][isOpen ? "open" : "default"],
+          size === "normal"
+            ? "rcn-px-4 rcn-py-1 rcn-h-9 rcn-text-base"
+            : "rcn-px-2 rcn-h-6 rcn-text-sm",
           className
         )}
       >
@@ -161,6 +169,7 @@ export const Select: React.FC<SelectProps> = ({
           minWidth: referenceElement?.scrollWidth,
         }}
         {...attributes.popper}
+        className="rcn-z-10"
       >
         <ul
           {...getMenuProps()}
